@@ -33,12 +33,12 @@ class ViperProvider extends Provider
             $app->error(function(\RuntimeException $e) use ($app) {
                 $app->render('error', array(), 500);
             });
-        }
 
-        // Handle not found
-        $app->notFound(function() use ($app) {
-            $app->render('notFound', array(), 404);
-        });
+            // Handle not found
+            $app->notFound(function() use ($app) {
+                $app->render('notFound', array(), 404);
+            });
+        }
 
         // Get the index page
         $app->get('/', function() use ($app)
