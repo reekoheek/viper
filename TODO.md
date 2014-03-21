@@ -1,0 +1,2 @@
+- Responsive Page
+- Pagination (scroll down to load next entries)

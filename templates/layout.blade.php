@@ -1,0 +1,62 @@
+<?php
+use \Bono\Helper\URL;
+
+$app  = \Bono\App::getInstance();
+$meta = $app->config('meta');
+$map  = $app->config('bono.controllers');
+$map  = $map['mapping'];
+?>
+
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@yield('title', $meta['title'])</title>
+
+    <meta name="description" content="{{ $meta['description'] }}" />
+    <meta name="author" content="{{ $meta['author'] }}" />
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <link type="image/x-icon" href="{{ URL::base('img/favicon.png') }}" rel="Shortcut icon" />
+
+    <link rel="stylesheet" href="{{ URL::base('css/naked.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('css/font-awesome.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('js/highlight/styles/github.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('css/loadie.css') }}">
+</head>
+
+<body>
+    @include('components.navbar')
+
+    <div class="le-content">
+        <div class="row alert-row">
+            @if(isset($flash['error']))
+                <div class="alert error">
+                    <button type="button" class="close">×</button>
+                    {{ $flash['error'] }}
+                </div>
+            @endif
+            @if(isset($flash['info']))
+                <div class="alert success">
+                    <button type="button" class="close">×</button>
+                    {{ $flash['info'] }}
+                </div>
+            @endif
+        </div>
+
+        @yield('content')
+    </div>
+
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/jquery.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/underscore.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/moment.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/jquery.loadie.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
+    <script type="text/javascript" charset="utf-8">(function(){"use strict";var URL_SITE=window.URL_SITE=location.origin+'{{ URL::site() }}',URL_BASE=window.URL_BASE=location.origin+'{{ URL::base() }}';})();</script>
+
+    @yield('injector')
+</body>
+</html>

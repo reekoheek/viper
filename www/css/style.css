@@ -1,0 +1,57 @@
+/* Global */
+body { background:#fcfcfc; }
+select { padding:.25em; }
+hr { border:1px dotted #eee; border-width:2px 0 0; }
+a { color: #95C648; }
+button, .button , input[type="submit"] { background-color: #95C648; }
+a:hover { color: #3B5A1B; }
+input:focus { border:1px solid #95C648; }
+.button.warning { background-color: #E0AD24 }
+
+/* Web */
+.tag { color: #8BD837; }
+.help-block { margin-top: -14px; display: block; margin-bottom: 20px; background-color: red; line-height: 30px; color: white; padding-left: 10px; font-style: italic; }
+.navbar ul.button-group li a { line-height: 120%; background: transparent; color: #95C648; border: 1px solid #95C648; }
+.navbar ul.button-group li a:hover { background-color: #3B5A1B; border: 1px solid #3B5A1B; }
+body .le-content .preview .post pre,body .le-content .container .post pre { padding:10px; margin-top:-5px; border-radius:3px; background-color:#f8f8f8; border: 1px solid #ddd; overflow:auto; line-height:20px; font-size: 12px; }
+#bloodhound { float:right; }
+#bloodhound div .span-9 span { width:100%; }
+body .le-content .title { padding-bottom:30px; }
+.tabstrip { position:fixed; top:0; bottom:auto; left:0; right:0; border-top:1px solid #eee; border-bottom:1px solid #eee; z-index:99; background:#f5f5f5; }
+body .le-content .container div .meta { padding-right:30px; }
+body .le-content .container div div ul { margin-top:-10px; margin-right:75px; border-right:1px solid #eee; text-align:right; }
+body .le-content .container div div div { margin-right:36px; }
+body .le-content .container div div div img { float:right; -webkit-border-radius:150px; -moz-border-radius:150px; border-radius:150px; }
+body .le-content .container div div ul li { list-style:none; font-size:10px; padding:0; color:#858585; }
+body .le-content .container div div ul li:first-child { margin-right:10px; }
+body .le-content .container div div ul li:first-child { padding-top:10px; }
+body div.le-content .container div div ul li:nth-child(5) { padding-bottom:10px; }
+body .le-content .container div div ul li:last-child { border-radius:50%; background-color:#fbfbfb; border:1px solid #ebebeb; position:absolute; width:10px; height:10px; right:101px; bottom:4px; }
+.meta ul li:after { color:#ebebeb; content:" -"; padding-left:2px; }
+.meta ul li:first-child:after { content:none; padding-left:0; }
+.meta ul li:last-child:after { content:none; padding-left:0; }
+.text-center { display:block; text-align:center; }
+body .le-content .container .row  { margin-bottom: 20px;; }
+body .le-content .container div article .action { padding-top:25px; }
+body .le-content { padding-top:70px; margin:0 5px; }
+body .le-content .prettyprint { border-radius:5px; background-color:#eee; }
+body div form .le-editor { position:absolute; top:175px; right:50%; bottom:50px; left:0; font-size:13px; }
+body div form .le-preview { position:absolute; overflow:auto; border-left:2px solid #eee; padding-left:5px; top:175px; right:0; bottom:50px; left:50%; font-size:13px; }
+body div form .le-preview pre { padding:10px; margin-top:-5px; border-radius:3px; background-color:#f8f8f8; border: 1px solid #ddd; overflow:auto; line-height:20px; }
+body div form .le-preview .le-holder { position:absolute; margin:-50px 0 0 -50px; left:50%; top:50%; }
+body div form .le-action { position:absolute; bottom:5px; }
+body .le-content div div a i { padding: 0 5px; }
+.login { width: 400px; margin: 40px auto; padding: 20px 20px 20px 20px; border: 1px solid #95C648; border-radius: 10px; }
+.logo { margin-right: auto; margin-left: auto; display: block; -webkit-border-radius:250px; -moz-border-radius:250px; border-radius:250px; }
+
+/* TypeAhead */
+.typeahead,.tt-query,.tt-hint { border:2px solid #ccc; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
+.typeahead { background-color:#fff; }
+.typeahead:focus { border:2px solid #95C648; }
+.tt-query { -webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075); -moz-box-shadow:inset 0 1px 1px rgba(0,0,0,0.075); box-shadow:inset 0 1px 1px rgba(0,0,0,0.075); }
+.tt-hint { color:#999; }
+.tt-dropdown-menu { width:340px; margin-top:-10px; padding:1px 0; background-color:#fff; border:1px solid #ccc; border:1px solid rgba(0,0,0,0.2); -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
+.tt-suggestion { padding:3px 20px; }
+.tt-cursor { color:#fff; background-color:#95C648; }
+.tt-suggestion p { margin:0; }
+#bloodhound.read .twitter-typeahead { width: 90%; }
