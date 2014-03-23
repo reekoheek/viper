@@ -8,11 +8,11 @@
         }
     },
     "require": {
-        "xinix-technology/norm": "~0.1.10",
-        "xinix-technology/bono": "~0.1.10",
+        "xinix-technology/norm": "*",
+        "xinix-technology/bono": "*",
         "reekoheek/bono-component": "dev-master",
         "reekoheek/util": "dev-master",
-        "krisanalfa/bono-blade": "dev-master",
+        "krisanalfa/bono-blade": "0.0.7",
         "filp/whoops": "1.0.10",
         "zeuxisoo/slim-whoops": "0.1.0"
     }

@@ -47,7 +47,7 @@
             url: location.href + '.json',
             data: data,
             type: 'POST'
-        }).done(function (data, textStatus, jqXHR) {
+        }).done(function (response, textStatus, jqXHR) {
             $('body').loadie(1);
             $('.alert').attr('class', 'alert success');
             $('body .le-content div .alert span').text('Success updating!');

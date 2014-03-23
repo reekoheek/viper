@@ -1,5 +1,6 @@
 @section('content')
 <?php
+
 use \ROH\BonoComponent\PlainForm as Form;
 use \Bono\App;
 
@@ -8,6 +9,7 @@ $controller = $app->controller;
 $form       = new Form($controller->clazz);
 
 ?>
+
 <h2 class="module">{{ $controller->clazz }}</h2>
 
 <form action="" method="POST">

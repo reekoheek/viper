@@ -30,13 +30,13 @@ class ViperProvider extends Provider
         // Handle error
         if(! $app->config('debug'))
         {
-            $app->error(function(\RuntimeException $e) use ($app) {
-                $app->render('error', array(), 500);
+            $app->error(function() use ($app) {
+                $app->view->render('error', array(), 500);
             });
 
             // Handle not found
             $app->notFound(function() use ($app) {
-                $app->render('notFound', array(), 404);
+                $app->view->render('notFound', array(), 404);
             });
         }
 
@@ -55,43 +55,42 @@ class ViperProvider extends Provider
         // Get the login page
         $app->get('/login', function() use ($app)
         {
-            $app->response->template('login');
+            return $app->view->render('login');
         });
 
         // Logout process
         $app->get('/logout', function() use ($app)
         {
             $app->login->deauth();
-            $app->flash('info', 'Successfully log out!');
+            $app->flashNow('info', 'Successfully log out!');
             return $app->response->redirect('/login');
         });
 
         // Login process
         $app->post('/login', function() use ($app)
         {
-            $post = $app->request->post();
-            $user = Norm::factory('Author')->findOne(array('username' => $post['username']));
+            $post   = $app->request->post();
+            $author = Norm::factory('Author')->findOne(array('username' => $post['username']));
 
             // Wrong username
-            if (is_null($user))
+            if (is_null($author))
             {
                 $app->flashNow('error', 'Wrong credentials!');
-                $app->response->template('login');
-                return;
+                return $app->response->template('login');
             }
 
-            if (password_verify($post['password'], $user->get('password')))
+            // Username and password match
+            if (password_verify($post['password'], $author->get('password')))
             {
-                $app->login->auth($user);
+                $app->login->auth($author);
                 $app->flash('info', 'Successfully log in!');
                 return $app->response->redirect('/entries');
             }
             // Wrong password
             else
             {
-                $app->response->template('login');
                 $app->flashNow('error', 'Wrong credentials!');
-                return;
+                return $app->response->template('login');
             }
         });
     }

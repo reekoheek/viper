@@ -14,6 +14,7 @@ $form  = Form::create($clazz)->of($entry);
         <button type="button" class="close">×</button>
         <span></span>
     </div>
+
     <form action="">
         {{ $form->input('title') }}
 

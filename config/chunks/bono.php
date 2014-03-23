@@ -7,18 +7,18 @@ return array(
 
     // The providers
     'bono.providers' => array(
-        '\\Norm\\Provider\\NormProvider',
-        '\\KrisanAlfa\\Blade\\Provider\\BladeProvider',
-        '\\Viper\\Provider\\AuthProvider',
         '\\Viper\\Provider\\ViperProvider',
+        '\\Viper\\Provider\\AuthProvider',
+        '\\KrisanAlfa\\Blade\\Provider\\BladeProvider',
+        '\\Norm\\Provider\\NormProvider',
     ),
 
     // The Middlewares
     'bono.middlewares' => array(
-        '\\Bono\\Middleware\\ControllerMiddleware',
-        '\\Bono\\Middleware\\ContentNegotiatorMiddleware',
-        '\\Viper\\Middleware\\InstallerMiddleware',
         '\\Viper\\Middleware\\AuthMiddleware',
+        '\\Bono\\Middleware\\ContentNegotiatorMiddleware',
+        '\\Bono\\Middleware\\ControllerMiddleware',
+        '\\Viper\\Middleware\\InstallerMiddleware',
     ),
 
     // Content Negotiatior

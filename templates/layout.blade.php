@@ -1,10 +1,12 @@
 <?php
+
 use \Bono\Helper\URL;
 
 $app  = \Bono\App::getInstance();
 $meta = $app->config('meta');
 $map  = $app->config('bono.controllers');
 $map  = $map['mapping'];
+
 ?>
 
 <!doctype html>

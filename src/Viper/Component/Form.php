@@ -19,6 +19,7 @@ class Form
 
     /**
      * It's like controller data
+     *
      * @var mixed
      */
     protected $data;

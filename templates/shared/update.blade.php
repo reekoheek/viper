@@ -1,5 +1,6 @@
 @section('content')
 <?php
+
 use \ROH\BonoComponent\PlainForm as Form;
 use \Bono\App;
 
@@ -7,6 +8,7 @@ $_app        = App::getInstance();
 $_controller = $_app->controller;
 $_form       = new Form($_controller->clazz);
 $entry       = ($entry instanceof \Norm\Model) ? $entry->toArray() : $entry
+
 ?>
 
 <h2>{{ $_controller->clazz }}</h2>

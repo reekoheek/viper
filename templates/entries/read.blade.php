@@ -7,9 +7,7 @@
     </div>
 </div>
 
-<div class="container post">
-
-</div>
+<div class="container post"></div>
 @endsection
 
 @section('injector')

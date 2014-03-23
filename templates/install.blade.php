@@ -35,10 +35,9 @@ $form       = new Form('Author');
         <input type="submit" value="Save" class="button">
     </div>
 </form>
-
 @endsection
 
 @section('injector')
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/jquery.validation.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/install.js') }}"></script>
-@show
+@endsection

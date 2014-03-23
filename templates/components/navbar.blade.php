@@ -1,12 +1,3 @@
-<?php
-use \Bono\Helper\URL;
-
-$app = \Bono\App::getInstance();
-$map = $app->config('bono.controllers');
-$map = $map['mapping'];
-
-?>
-
 <div class="navbar">
     <ul class="button-group centered">
         <li class=""><a href="{{ URL::base() }}" class="button"><i class="fa fa-home"></i> Home</a></li>

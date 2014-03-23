@@ -24,4 +24,4 @@
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/marked.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/typeahead.bundle.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/hello.js') }}"></script>
-@show
+@endsection

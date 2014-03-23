@@ -48,10 +48,6 @@ vendor
 *.lock
 bower_components
 
-# Project Cache #
-#################
-/cache
-
 # Spesific Reason #
 ###################
 avatar.jpeg

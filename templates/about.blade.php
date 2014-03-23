@@ -36,5 +36,4 @@
     </div>
     <h4 class="text-center"><small>PT. Sagara Xinix Solusitama</small></h4>
 </div>
-
 @endsection
