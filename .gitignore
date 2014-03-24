@@ -50,4 +50,4 @@ bower_components
 
 # Spesific Reason #
 ###################
-avatar.jpeg
+/www/img/*.jpeg

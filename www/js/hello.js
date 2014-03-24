@@ -46,7 +46,9 @@
                     return !!$.trim(this.innerHTML || this.data);
                 });
                 model.preview = $('<div>').append(preview[0]).append(preview[1]).html();
-                model.URL_BASE = window.URL_BASE;
+                data.URL_BASE = window.URL_BASE;
+                data.URL_SITE = window.URL_SITE;
+                model.url     = window.location.href;
                 $('.container.posts').append(compiled(model));
             });
 

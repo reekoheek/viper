@@ -42,6 +42,8 @@
             data.$created_time = moment(data.$created_time).format('llll');
             data.entry         = marked(data.content);
             data.URL_BASE      = window.URL_BASE;
+            data.URL_SITE      = window.URL_SITE;
+            data.url           = window.location.href;
 
             $('.container.post').append(compiled(data));
 

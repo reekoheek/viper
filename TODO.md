@@ -1,7 +1,5 @@
 - Responsive Page
 - Pagination (scroll down to load next entries)
 - Logo
-- Share in Twitter
 - Remind Password
-- Multiple author image
 - Delete redirection

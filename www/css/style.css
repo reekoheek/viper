@@ -1,5 +1,5 @@
 /* Global */
-body { background:#fcfcfc; }
+body { background:#fcfcfc; overflow: auto; }
 select { padding:.25em; }
 hr { border:1px dotted #eee; border-width:2px 0 0; }
 a { color: #95C648; }

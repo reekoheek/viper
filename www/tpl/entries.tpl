@@ -1,7 +1,7 @@
 <div class="row">
     <div class="meta span-4">
         <div>
-            <img src="{{ URL_BASE + '/img/avatar.jpeg' }}" style="width:80px; height:80px ">
+            <img src="{{ URL_BASE + '/img/' + author.twitter + '.jpeg' }}" style="width:80px; height:80px ">
         </div>
         <div class="clearfix"></div>
         <ul>
@@ -28,7 +28,9 @@
         {{ preview }}
         <hr />
         <div class="action">
-            <button><i class="fa fa-twitter"></i> Share on Twitter</button>
+            <a class="button twitter" href="https://twitter.com/share?url={{url}}&text={{title}}&via={{author.twitter}}&hashtags={{tag.name}}">
+                <i class="fa fa-twitter"></i> Share on Twitter
+            </a>
             <a class="button" href="{{ URL_SITE }}entries/{{ $id }}"><i class="fa fa-pagelines"></i> Read More</a>
         </div>
     </article>

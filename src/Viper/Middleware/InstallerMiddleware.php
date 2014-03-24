@@ -81,15 +81,19 @@ class InstallerMiddleware extends \Slim\Middleware
         // If there's an author
         else
         {
-            $avatar = __DIR__ . '/../../../www/img/avatar.jpeg';
+            $authors = \Norm\Norm::factory('Author')->find();
 
-            // Setting up avatar
-            if (! file_exists($avatar))
+            foreach ($authors as $author)
             {
-                $author = \Norm\Norm::factory('Author')->findOne();
-                $email  = $author->get('email');
+                $email   = $author->get('email');
+                $twitter = $author->get('twitter');
+                $avatar  = __DIR__ . '/../../../www/img/' . $twitter . '.jpeg';
 
-                @copy($this->getGravatar($email), $avatar);
+                // Setting up avatar
+                if (! file_exists($avatar))
+                {
+                    copy($this->getGravatar($email), $avatar);
+                }
             }
 
             $this->next->call();
