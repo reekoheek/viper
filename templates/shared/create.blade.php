@@ -21,5 +21,4 @@ $form       = new Form($controller->clazz);
         <a href="{{ \Bono\Helper\URL::site($controller->getRedirectUri()) }}" class="button">Back to List</a>
     </div>
 </form>
-
 @endsection

@@ -15,4 +15,4 @@
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/marked.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/typeahead.bundle.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/read.js') }}"></script>
-@show
+@endsection

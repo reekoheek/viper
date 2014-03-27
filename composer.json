@@ -12,7 +12,7 @@
         "xinix-technology/bono": "*",
         "reekoheek/bono-component": "dev-master",
         "reekoheek/util": "dev-master",
-        "krisanalfa/bono-blade": "0.0.7",
+        "krisanalfa/bono-blade": "0.1.0",
         "filp/whoops": "1.0.10",
         "zeuxisoo/slim-whoops": "0.1.0"
     }

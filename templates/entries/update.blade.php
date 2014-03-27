@@ -38,4 +38,4 @@ $form  = Form::create($clazz)->of($entry);
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/marked.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/ace/ace.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/update.js') }}"></script>
-@show
+@endsection
