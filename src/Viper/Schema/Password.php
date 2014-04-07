@@ -11,7 +11,8 @@ namespace Viper\Schema;
  * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
  * @package     Viper
  */
-class Password extends \Norm\Schema\Field {
+class Password extends \Norm\Schema\Field
+{
 
     /**
      * Render read-write form
@@ -20,16 +21,18 @@ class Password extends \Norm\Schema\Field {
      * @param  string $value The value of a field
      * @return string        HTML string
      */
-    public function input($value, $entry = NULL) {
-        if ($this['readonly'])
-        {
+    public function input($value, $entry = null)
+    {
+        if ($this['readonly']) {
             return '<span class="field">*hidden*</span>';
         }
 
         return '
             <div class="row">
-                <input type="password" name="'.$this['name'].'" value="" placeholder="Password" autocomplete="off" />
-                <input type="password" name="'.$this['name'].'_confirmation" value="" placeholder="Password confirmation" autocomplete="off" />
+                <input type="password" name="'.$this['name'].
+                    '" value="" placeholder="Password" autocomplete="off" />
+                <input type="password" name="'.$this['name'].
+                    '_confirmation" value="" placeholder="Password confirmation" autocomplete="off" />
             </div>
         ';
     }
@@ -41,10 +44,9 @@ class Password extends \Norm\Schema\Field {
      * @param  string $value The value of a field
      * @return string        HTML string
      */
-    public function cell($value, $entry = NULL)
+    public function cell($value, $entry = null)
     {
-        if ($this->has('cellFormat'))
-        {
+        if ($this->has('cellFormat')) {
             return parent::cell($value, $entry);
         }
 

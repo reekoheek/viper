@@ -13,7 +13,6 @@ namespace Viper\Middleware;
  */
 class AuthMiddleware extends \Slim\Middleware
 {
-
     /**
      * Checking config match against request
      *
@@ -23,10 +22,8 @@ class AuthMiddleware extends \Slim\Middleware
      */
     private function inArray($string, $array = array())
     {
-        foreach ($array as $key => $value)
-        {
-            if (fnmatch($key, $string))
-            {
+        foreach ($array as $key => $value) {
+            if (fnmatch($key, $string)) {
                 return true;
             }
         }
@@ -47,27 +44,20 @@ class AuthMiddleware extends \Slim\Middleware
         $allow    = false;
 
         // If request is allowed in config and not in restricted page
-        if ($this->inArray($pathInfo, $config['allow']) and ! $this->inArray($pathInfo, $config['restricted']))
-        {
+        if ($this->inArray($pathInfo, $config['allow']) and ! $this->inArray($pathInfo, $config['restricted'])) {
             $allow = true;
         }
 
-        if (! $allow)
-        {
+        if (! $allow) {
             // If user is logged in
             if ($app->login->check()) {
                 $this->next->call();
-            }
-            else
-            {
+            } else {
                 $this->app->render('unauthorized', array(), 401);
                 $this->app->stop();
             }
-        }
-        else
-        {
+        } else {
             $this->next->call();
         }
-
     }
 }

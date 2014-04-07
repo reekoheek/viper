@@ -54,9 +54,9 @@ return array(
                 'schema' => array(
                     'title'   => String::getInstance('title')->filter('trim|required'),
                     'content' => String::getInstance('content')->filter('trim|required')
-                        ->set('cellFormat', function($value, $entry, $itself) {
+                        ->set('cellFormat', function ($value, $entry, $itself) {
                             return substr($value, 0, 40) . '...';
-                    }),
+                        }),
                     'tags'    => Reference::getInstance('tags')->to('Tags', null, 'name'),
                 )
             )

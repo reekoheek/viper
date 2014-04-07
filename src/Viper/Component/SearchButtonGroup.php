@@ -28,12 +28,9 @@ class SearchButtonGroup
         $app    = App::getInstance();
         $config = $app->config('component.searchButtonGroup');
 
-        if (isset($config['mapping'][$app->controller->clazz]))
-        {
+        if (isset($config['mapping'][$app->controller->clazz])) {
             $this->config = $config['mapping'][$app->controller->clazz];
-        }
-        else
-        {
+        } else {
             $this->config = $config['default'];
         }
     }

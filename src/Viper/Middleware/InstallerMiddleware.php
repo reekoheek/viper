@@ -43,55 +43,42 @@ class InstallerMiddleware extends \Slim\Middleware
         $user = \Norm\Norm::factory('Author')->find();
 
         // If there's no entry in `author' field
-        if (empty($user->toArray()))
-        {
+        if (empty($user->toArray())) {
             // If in `/install' path
-            if ($this->app->request->getPathInfo() === '/install' and empty($user->toArray()))
-            {
+            if ($this->app->request->getPathInfo() === '/install' and empty($user->toArray())) {
                 // If request type is get, render the install template
-                if ($this->app->request->isGet())
-                {
+                if ($this->app->request->isGet()) {
                     $this->app->response->template('install');
                 }
 
                 // If request type is post, insert input to database
-                if ($this->app->request->isPost())
-                {
-                    try
-                    {
+                if ($this->app->request->isPost()) {
+                    try {
                         $entry  = $this->app->request->post();
                         $model  = \Norm\Norm::factory('Author')->newInstance();
                         $result = $model->set($entry)->save();
 
                         $this->app->flash('info', 'New author has been successfully created');
                         $this->app->response->redirect('/login');
-                    }
-                    catch(\Exception $e)
-                    {
+                    } catch(\Exception $e) {
                         throw $e;
                     }
                 }
-            }
-            // If not in `/install' path, redirect to `/install'
-            else
-            {
+            } else {
+                // If not in `/install' path, redirect to `/install'
                 $this->app->response->redirect('/install');
             }
-        }
-        // If there's an author
-        else
-        {
+        } else {
+            // If there's an author
             $authors = \Norm\Norm::factory('Author')->find();
 
-            foreach ($authors as $author)
-            {
+            foreach ($authors as $author) {
                 $email   = $author->get('email');
                 $twitter = $author->get('twitter');
                 $avatar  = __DIR__ . '/../../../www/img/' . $twitter . '.jpeg';
 
                 // Setting up avatar
-                if (! file_exists($avatar))
-                {
+                if (! file_exists($avatar)) {
                     copy($this->getGravatar($email), $avatar);
                 }
             }

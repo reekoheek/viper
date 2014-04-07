@@ -4,7 +4,6 @@ namespace Viper\Controller;
 
 use \Norm\Controller\NormController;
 
-
 /**
  * Norm cannot hide the Author password, so we hide it right here
  *
@@ -14,8 +13,8 @@ use \Norm\Controller\NormController;
  * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
  * @package     Viper
  */
-class AuthorController extends NormController {
-
+class AuthorController extends NormController
+{
     /**
      * Get all the author resource
      *
@@ -26,8 +25,7 @@ class AuthorController extends NormController {
         $entries = $this->collection->find($this->getCriteria())->sort($this->getSort());
         $data    = array();
 
-        foreach ($entries as $entry)
-        {
+        foreach ($entries as $entry) {
             $entry  = $entry->toArray();
             unset($entry['password']);
             $data[] = $entry;
@@ -35,5 +33,4 @@ class AuthorController extends NormController {
 
         $this->data['entries'] = $data;
     }
-
 }

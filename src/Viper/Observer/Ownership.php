@@ -24,14 +24,10 @@ class Ownership
         $app  = \Bono\App::getInstance();
         $user = $app->login->user();
 
-        if (is_null($model['$id']))
-        {
+        if (is_null($model['$id'])) {
             $model['$updated_by'] = $model['$created_by'] = ($user) ? $user->getId() : 'system';
-        }
-        else
-        {
+        } else {
             $model['$updated_by'] = $user->getId();
         }
     }
 }
-

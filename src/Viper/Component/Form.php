@@ -16,7 +16,6 @@ use Norm\Norm;
  */
 class Form
 {
-
     /**
      * It's like controller data
      *
@@ -57,8 +56,7 @@ class Form
      */
     public function input($key, $value = ':empty:')
     {
-        if ($value === ':empty:')
-        {
+        if ($value === ':empty:') {
             $value = $this->data($key);
         }
 
@@ -77,7 +75,7 @@ class Form
         $field             = $this->fields[$key];
         $field['readonly'] = true;
 
-        return $this->input($key,$value);
+        return $this->input($key, $value);
     }
 
     /**
@@ -102,8 +100,7 @@ class Form
     public function hidden($key, $value = ':empty:')
     {
 
-        if ($value === ':empty:')
-        {
+        if ($value === ':empty:') {
             $value = $this->data($key);
         }
 
@@ -132,5 +129,4 @@ class Form
         $this->data = &$data;
         return $this;
     }
-
 }

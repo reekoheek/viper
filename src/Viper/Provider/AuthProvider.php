@@ -32,15 +32,13 @@ class AuthProvider extends Provider
         $app          = $this->app;
         $this->config = $this->app->config('auth');
 
-        if (! isset($_SESSION))
-        {
+        if (! isset($_SESSION)) {
             session_start();
         }
 
         $that = $this;
 
-        $app->container->singleton('login', function ($c) use ($that)
-        {
+        $app->container->singleton('login', function ($c) use ($that) {
             return $that;
         });
     }
@@ -84,24 +82,20 @@ class AuthProvider extends Provider
     {
         $id = $this->config['id'];
 
-        if ($this->check())
-        {
-            if(!is_null($value) and (!is_null($section)))
-            {
+        if ($this->check()) {
+            if (!is_null($value) and (!is_null($section))) {
                 $_SESSION['auth'][$id]['user'][$section] = $value;
             }
 
-            if (is_null($section))
-            {
+            if (is_null($section)) {
                 return $_SESSION['auth'][$id]['user'];
+            } else {
+                if (isset($_SESSION['auth'][$id]['user'][$section])) {
+                    return $_SESSION['auth'][$id]['user'][$section]
+                }
+                return null;
             }
-            else
-            {
-                return (isset($_SESSION['auth'][$id]['user'][$section])) ? $_SESSION['auth'][$id]['user'][$section] : null;
-            }
-        }
-        else
-        {
+        } else {
             return null;
         }
     }
@@ -115,12 +109,9 @@ class AuthProvider extends Provider
     {
         $id = $this->config['id'];
 
-        if(isset($_SESSION['auth'][$id]))
-        {
+        if(isset($_SESSION['auth'][$id])) {
             return (isset($_SESSION['auth'][$id]['login']) ? $_SESSION['auth'][$id]['login'] : false);
-        }
-        else
-        {
+        } else {
             $_SESSION['auth'][$id] = array();
             return false;
         }
