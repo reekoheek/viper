@@ -1,5 +1,5 @@
 (function (marked, hljs, $, _, Bloodhound, moment) {
-    "use strict";
+    'use strict';
 
     _.templateSettings = {
         interpolate : /\{\{([\s\S]+?)\}\}/g
@@ -20,7 +20,7 @@
             var deferred = $.Deferred();
 
             $.ajax({
-                url: window.URL_BASE + "tpl/entries.tpl"
+                url: window.URL_BASE + 'tpl/entries.tpl'
             }).done(function (templateString) {
                 template = templateString;
                 deferred.resolve();
@@ -39,8 +39,8 @@
 
             $.each(data, function (key, model) {
                 compiled      = _.template(template);
-                model.tag     = _.first(_.where(tags, {"$id": model.tags}));
-                model.author  = _.first(_.where(author, {"$id": model.$created_by}));
+                model.tag     = _.first(_.where(tags, {'$id': model.tags}));
+                model.author  = _.first(_.where(author, {'$id': model.$created_by}));
                 model.$created_time = moment(model.$created_time).format('llll');
                 preview       = $(marked(model.content)).filter(function () {
                     return !!$.trim(this.innerHTML || this.data);
@@ -128,21 +128,21 @@
         };
 
     $.ajax({
-        url: window.URL_SITE  + "tags.json"
+        url: window.URL_SITE  + 'tags.json'
     }).done(function (data) {
         tags = data.entries;
 
         $('body').loadie(0.2);
 
         $.ajax({
-            url: window.URL_SITE + "author.json"
+            url: window.URL_SITE + 'author.json'
         }).done(function (response) {
             $('body').loadie(0.4);
 
             author = response.entries;
 
             $.ajax({
-                url: window.URL_SITE + "entries.json"
+                url: window.URL_SITE + 'entries.json'
             }).done(function (data) {
                 $('body').loadie(0.6);
 
@@ -152,7 +152,7 @@
                     });
                 } else {
                     $.ajax({
-                        url: window.URL_BASE + "tpl/empty.tpl"
+                        url: window.URL_BASE + 'tpl/empty.tpl'
                     }).done(function (templateString) {
                         $('.container.posts').append(templateString);
                     });

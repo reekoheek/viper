@@ -3,27 +3,28 @@
 // Auth
 return array(
     'auth' => array(
-        // Unique identifier of Session Id
+        // Unique identifier of Session Id, it use SHA1-SUM
+        // You may change this section to avoid PHP section mess
         'id'    => '38c5f95720908407bc895d315cf7f7a06950576e',
 
         // Allowed URL
         'allow' => array(
-            ''                    => NULL,
-            '/'                   => NULL,
-            '/about'              => NULL,
-            '/install'            => NULL,
-            '/entries/*'          => NULL,
-            '/login'              => NULL,
-            '/logout'             => NULL,
-            '/tags.json'          => NULL,
-            '/entries.json'       => NULL,
-            '/author.json'        => NULL,
+            ''                    => null,
+            '/'                   => null,
+            '/about'              => null,
+            '/install'            => null,
+            '/entries/*'          => null,
+            '/login'              => null,
+            '/logout'             => null,
+            '/tags.json'          => null,
+            '/entries.json'       => null,
+            '/author.json'        => null,
         ),
 
         // Need authentication
         'restricted' => array(
-            '/entries'     => NULL,
-            '/entries/*/*' => NULL,
+            '/entries'     => null,
+            '/entries/*/*' => null,
         ),
     ),
 );

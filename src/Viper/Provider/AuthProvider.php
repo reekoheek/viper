@@ -109,7 +109,7 @@ class AuthProvider extends Provider
     {
         $id = $this->config['id'];
 
-        if(isset($_SESSION['auth'][$id])) {
+        if (isset($_SESSION['auth'][$id])) {
             return (isset($_SESSION['auth'][$id]['login']) ? $_SESSION['auth'][$id]['login'] : false);
         } else {
             $_SESSION['auth'][$id] = array();

@@ -12,7 +12,7 @@
 
 @section('injector')
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/highlight/highlight.pack.js') }}"></script>
-<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/marked.js') }}"></script>
-<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/typeahead.bundle.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/marked.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/typeahead.bundle.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/read.js') }}"></script>
 @endsection

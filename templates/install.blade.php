@@ -38,6 +38,6 @@ $form       = new Form('Author');
 @endsection
 
 @section('injector')
-<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/jquery.validation.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.validation.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/install.js') }}"></script>
 @endsection

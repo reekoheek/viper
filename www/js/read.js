@@ -1,5 +1,5 @@
 (function (marked, hljs, $, _, Bloodhound, moment) {
-    "use strict";
+    'use strict';
 
     _.templateSettings = {
         interpolate : /\{\{([\s\S]+?)\}\}/g
@@ -20,7 +20,7 @@
             var deferred = $.Deferred();
 
             $.ajax({
-                url: window.URL_BASE + "tpl/entry.tpl"
+                url: window.URL_BASE + 'tpl/entry.tpl'
             }).done(function (templateString) {
                 template = templateString;
                 deferred.resolve();
@@ -37,8 +37,8 @@
             $('body').loadie(0.7);
 
             compiled           = _.template(template);
-            data.author        = _.first(_.where(author, {"$id": data.$created_by}));
-            data.tag           = _.first(_.where(tags, {"$id": data.tags}));
+            data.author        = _.first(_.where(author, {'$id': data.$created_by}));
+            data.tag           = _.first(_.where(tags, {'$id': data.tags}));
             data.$created_time = moment(data.$created_time).format('llll');
             data.entry         = marked(data.content);
             data.URL_BASE      = window.URL_BASE;
@@ -116,21 +116,21 @@
     });
 
     $.ajax({
-        url: window.URL_BASE + "tags.json"
+        url: window.URL_BASE + 'tags.json'
     }).done(function (data) {
         tags = data.entries;
 
         $('body').loadie(0.2);
 
         $.ajax({
-            url: window.URL_SITE + "author.json"
+            url: window.URL_SITE + 'author.json'
         }).done(function (response) {
             $('body').loadie(0.4);
 
             author = response.entries;
 
             $.ajax({
-                url: window.location.href + ".json"
+                url: window.location.href + '.json'
             }).done(function (data) {
                 $('body').loadie(0.6);
 

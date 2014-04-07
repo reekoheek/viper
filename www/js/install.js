@@ -1,5 +1,5 @@
 (function ($) {
-    "use strict";
+    'use strict';
 
     $($('input')[0]).focus();
 
@@ -29,7 +29,7 @@
                 minlength: 7
             },
             password_confirmation: {
-                equalTo: "input[name=password]"
+                equalTo: 'input[name=password]'
             }
         },
         highlight: function (element) { // hightlight error inputs

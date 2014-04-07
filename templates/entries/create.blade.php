@@ -37,7 +37,7 @@ $form  = Form::create($clazz)->of($entry);
 
 @section('injector')
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/highlight/highlight.pack.js') }}"></script>
-<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/marked.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/marked.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/ace/ace.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/create.js') }}"></script>
 @endsection

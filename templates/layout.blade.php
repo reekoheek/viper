@@ -28,6 +28,8 @@ $map  = $map['mapping'];
     <link rel="stylesheet" href="{{ URL::base('js/highlight/styles/github.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/style.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/loadie.css') }}">
+
+    @yield('styler')
 </head>
 
 <body>
@@ -52,10 +54,10 @@ $map  = $map['mapping'];
         @yield('content')
     </div>
 
-    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/jquery.js') }}"></script>
-    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/underscore.js') }}"></script>
-    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/moment.js') }}"></script>
-    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/jquery.loadie.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/underscore.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/moment.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.loadie.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
     <script type="text/javascript" charset="utf-8">(function(){"use strict";var URL_SITE=window.URL_SITE=location.origin+'{{ URL::site() }}',URL_BASE=window.URL_BASE=location.origin+'{{ URL::base() }}';})();</script>
 

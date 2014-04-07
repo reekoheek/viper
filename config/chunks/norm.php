@@ -15,6 +15,18 @@ return array(
             'driver' => '\\Norm\\Connection\\MongoConnection',
             'database' => 'viper',
         ),
+        // 'mysql' => array(
+        //     'driver'   => '\\Norm\\Connection\\PDOConnection',
+        //     'prefix'   => 'mysql',
+        //     'database' => 'viper',
+        //     'username' => '',
+        //     'password' => '',
+        // ),
+        // 'sqlite' => array(
+        //     'driver' => '\\Norm\\Connection\\PDOConnection',
+        //     'prefix' => 'sqlite',
+        //     'database' => __DIR__ . '/../../storage/viper.sqlite',
+        // ),
     ),
 
     // Collections of database
@@ -33,6 +45,7 @@ return array(
                     '\\Norm\\Observer\\Hashed' => array(
                         'fields'  => array('password'),
                         'algo'    => PASSWORD_BCRYPT,
+                        // You may change the cost to improve hashing method
                         'options' => array('cost' => 12),
                     )
                 ),

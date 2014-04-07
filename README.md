@@ -1,12 +1,10 @@
 ![Viper](https://github.com/krisanalfa/viper/raw/master/www/img/viper.png)
 
 # Viper
-
 Viper is e **V** erything **I** s **PER** mitted, a simple blog management system written in PHP.
 Post something in markdown style, and you'll set to publish. I create this one for my beloved friends, Subhan Toba. So people now can write what is in their mind via a fun blogging system.
 
 # Philosophy
-
 The main idea is create a simple blog management system, make it simple, always simple as KISS.
 
 # Requirement and Installation
@@ -27,13 +25,62 @@ The main idea is create a simple blog management system, make it simple, always 
 - For first time, you may connect to internet to get your gravatar image id (see in FAQ), so it take some times depends on your internet connection
 - Ready to set
 
-# Configuration
-
-**To be defined later**
-
 # Templating
+Viper use Blade Template Engine. You must have a basic knowledge of Blade Layouting and Bono Templating before you start to change the template. The base layout is defined in `/templates/layout.blade.php`
+```php
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>@yield('title', $meta['title'])</title>
 
-**To be defined later**
+    <!-- SOME META -->
+
+    <!-- FAVICON -->
+
+    <!-- BASE PAGE STYLE -->
+
+    <!-- CUSTOM PAGE STYLE -->
+</head>
+
+<body>
+    <!-- NAVBAR GOES HERE -->
+
+    <div class="le-content">
+        <!-- ALERT SECTION -->
+        <div class="row alert-row">
+            @if(isset($flash['error']))
+                <div class="alert error">
+                    <button type="button" class="close">×</button>
+                    {{ $flash['error'] }}
+                </div>
+            @endif
+            @if(isset($flash['info']))
+                <div class="alert success">
+                    <button type="button" class="close">×</button>
+                    {{ $flash['info'] }}
+                </div>
+            @endif
+        </div>
+        <!-- END OF ALERT SECTION -->
+
+        <!-- CONTENT GOES HERE -->
+    </div>
+
+    <!-- BASE JAVASCRIPT FILES -->
+
+    <!-- CUSTOM JAVASCRIPT FILES YOU WANT TO INJECT -->
+</body>
+</html>
+
+```
+
+As you see you can:
+- Edit the title page by change the `title` section.
+- Customize your page appearance by inject your css to `styler` section.
+- Customize navbar in `components.navbar` section. You can edit the navbar by editing `/shared/components/navbar.blade.php`
+- Put page content to `content` section. Each page has it's unique content page. Read Bono Templating Documentation to find out how it works.
+- You can inject any javascript file by append them to `injector` section.
 
 # FAQ
 **Please have a time to check TODO.md file to get what's not being there in Viper**
@@ -42,7 +89,7 @@ The main idea is create a simple blog management system, make it simple, always 
 Q: What is Viper?
 A: Viper is a carry ranged agility hero. Whoops. I mean, It's a very small and simple blog management system. Using markdown syntax for writing.
 
-Q: Why I should use Viper?
+Q: Why should I use Viper?
 A: If you want a simple blog, share your mind, or maybe code. This is a good choice. Writing entry is so funny and i't really simple.
 
 Q: I want to change my identity. How do I do that?
@@ -54,10 +101,10 @@ A: Go to Entries tab. Create your first entry there.
 Q: How do I update or delete my post?
 A: Please, you can do it in Entries tab.
 
-Q: Why the avatar is not shown as I expected?
+Q: Why the avatar didn't shown as I expected?
 A: You have to create a Gravatar ID by your email address in Author configuration.
 
-Q: Why some elements not rendered well?
+Q: Why some elements doesn't rendered well?
 A: Composer update may help. But if the error still ocured, you may assign an issue. I'll fix as fast as I can.
 
 Q: How can I change theme?
@@ -72,8 +119,8 @@ A: You CAN NOT attach picture to your post via VIPER, but you can use markdown s
 Q: Can Viper attach a video?
 A: Of course, you CAN NOT. You wanna build a YouTube or what?
 
-Q: I don't want use MongoDB, I want to use MySQL.
-A: You can change them in config. It's a NORM feautre. But keep in mind, I HAVEN'T test it yet, so you have to create your own schema before you use that database.
+Q: I don't want use MongoDB, I want to use MySQL or SQL-Lite.
+A: You can change them in config. It's a NORM feautre. But keep in mind, I HAVEN'T test it yet, so you have to create your own schema before you use that database. You must change the Norm config in `./config/chunks/norm.php`
 
 Q: I want to change my avatar.
 A: Delete the avatar.jpeg in './www/img/avatar.jpeg' and put your own there. The prefer dimension is: 80x80.
@@ -83,14 +130,16 @@ A: Of course you can. Read the Developer Notes section.
 ```
 
 # Developer Notes
-**To be defined later**
+- Clone this repo
+- Create a new branch
+- Switch to your new branch
+- Write some hack (PHP script follow PSR-2 coding standard)
+- Create pull request
 
 # Created By
-
 Krisan Alfa Timur a.k.a [Zeek](https://twitter.com/krisanalfa)
 
 #Contributors
-
 - I hope you're here
 
 # Special Gift for

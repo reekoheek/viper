@@ -59,7 +59,7 @@
             $('.alert').attr('class', 'alert error');
             $('body .le-content div .alert span').text('Error updating!');
             $('body .le-content div .alert').fadeIn();
-            window.console.log(data, textStatus, jqXHR);
+            window.console.error(data, textStatus, jqXHR);
         });
     });
 })(window.$, window.ace, window.marked, window.hljs);
