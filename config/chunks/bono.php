@@ -38,7 +38,7 @@ return array(
         'mapping' => array(
             '/author'  => '\\Viper\\Controller\\AuthorController',
             '/tags'    => null,
-            '/entries' => null,
+            '/entries' => '\\Viper\\Controller\\EntriesController',
         ),
     ),
 

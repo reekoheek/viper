@@ -85,19 +85,7 @@
                     return list.entries;
                 }
             }
-        }),
-        renderMatch = function() {
-            entries.get($('.typeahead.tt-input').val(), function (suggestions) {
-                if (suggestions.length === 0) {
-                    window.alert('Why you search something doesn\'t exist?');
-                } else {
-                    $('.container.posts').html('');
-                    renderTemplate(suggestions, true).done(function () {
-                        $('body').loadie(1);
-                    });
-                }
-            });
-        };
+        });
 
     entries.initialize().done(function () {
         $('.typeahead').typeahead(null, {
@@ -107,16 +95,11 @@
             source: entries.ttAdapter()
         }).on('typeahead:selected', function (event, datum) {
             location.href = window.URL_SITE + 'entries/' + datum.$id;
-        }).on('keypress', function (event) {
-            if (event.which === 13) {
-                $('body').loadie();
-                renderMatch();
-            }
         });
     });
 
     $.ajax({
-        url: window.URL_BASE + 'tags.json'
+        url: window.URL_SITE + 'tags.json'
     }).done(function (data) {
         tags = data.entries;
 
@@ -130,7 +113,7 @@
             author = response.entries;
 
             $.ajax({
-                url: window.location.href + '.json'
+                url: window.URL_SITE + 'entries/' + _.last(window.location.pathname.split('/')) + '.json'
             }).done(function (data) {
                 $('body').loadie(0.6);
 
