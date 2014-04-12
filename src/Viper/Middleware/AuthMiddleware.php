@@ -38,24 +38,10 @@ class AuthMiddleware extends \Slim\Middleware
      */
     public function call()
     {
-        $config   = $this->app->config('auth');
-        $pathInfo = $this->app->request->getPathInfo();
         $app      = $this->app;
+        $config   = $app->config('auth');
+        $pathInfo = $app->request->getPathInfo();
         $allow    = false;
-
-        // If not in debug mode
-        if (! $app->config('debug')) {
-            $app->error(function () {
-                $app->view->render('error', array(), 500);
-                $this->app->stop();
-            });
-
-            // Handle not found
-            $app->notFound(function () {
-                $this->app->view->render('notFound', array(), 404);
-                $this->app->stop();
-            });
-        }
 
         // If request is allowed in config and not in restricted page
         if ($this->inArray($pathInfo, $config['allow']) and ! $this->inArray($pathInfo, $config['restricted'])) {
@@ -67,8 +53,8 @@ class AuthMiddleware extends \Slim\Middleware
             if ($app->login->check()) {
                 $this->next->call();
             } else {
-                $this->app->render('unauthorized', array(), 401);
-                $this->app->stop();
+                $app->render('unauthorized', array(), 401);
+                $app->stop();
             }
         } else {
             $this->next->call();
