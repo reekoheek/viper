@@ -27,18 +27,6 @@ class ViperProvider extends Provider
     {
         $app = $this->app;
 
-        // Handle error
-        if (! $app->config('debug')) {
-            $app->error(function () use ($app) {
-                $app->view->render('error', array(), 500);
-            });
-
-            // Handle not found
-            $app->notFound(function () use ($app) {
-                $app->view->render('notFound', array(), 404);
-            });
-        }
-
         // Get the index page
         $app->get('/', function () use ($app) {
             $app->view->render('hello');

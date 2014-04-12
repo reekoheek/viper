@@ -91,7 +91,7 @@ class AuthProvider extends Provider
                 return $_SESSION['auth'][$id]['user'];
             } else {
                 if (isset($_SESSION['auth'][$id]['user'][$section])) {
-                    return $_SESSION['auth'][$id]['user'][$section]
+                    return $_SESSION['auth'][$id]['user'][$section];
                 }
                 return null;
             }

@@ -59,7 +59,12 @@ $map  = $map['mapping'];
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/moment.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.loadie.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
-    <script type="text/javascript" charset="utf-8">(function(){"use strict";var URL_SITE=window.URL_SITE=location.origin+'{{ URL::site() }}',URL_BASE=window.URL_BASE=location.origin+'{{ URL::base() }}';})();</script>
+    <script type="text/javascript" charset="utf-8">
+    (function(){
+        var URL_SITE = window.URL_SITE = '{{ URL::site() }}',
+            URL_BASE = window.URL_BASE = '{{ URL::base() }}';}
+    )();
+    </script>
 
     @yield('injector')
 </body>

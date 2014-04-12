@@ -43,6 +43,20 @@ class AuthMiddleware extends \Slim\Middleware
         $app      = $this->app;
         $allow    = false;
 
+        // If not in debug mode
+        if (! $app->config('debug')) {
+            $app->error(function () {
+                $app->view->render('error', array(), 500);
+                $this->app->stop();
+            });
+
+            // Handle not found
+            $app->notFound(function () {
+                $this->app->view->render('notFound', array(), 404);
+                $this->app->stop();
+            });
+        }
+
         // If request is allowed in config and not in restricted page
         if ($this->inArray($pathInfo, $config['allow']) and ! $this->inArray($pathInfo, $config['restricted'])) {
             $allow = true;

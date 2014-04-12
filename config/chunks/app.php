@@ -7,7 +7,7 @@ return array(
 
     // Debug Option
     // Set it to false when you ready to production
-    'debug' => true,
+    'debug' => false,
 
     // Meta description of your blog
     'meta' => array(
