@@ -85,49 +85,22 @@ As you see you can:
 # FAQ
 **Please have a time to check TODO.md file to get what's not being there in Viper**
 
-```
-Q: What is Viper?
-A: Viper is a carry ranged agility hero. Whoops. I mean, It's a very small and simple blog management system. Using markdown syntax for writing.
-
-Q: Why should I use Viper?
-A: If you want a simple blog, share your mind, or maybe code. This is a good choice. Writing entry is so funny and i't really simple.
-
-Q: I want to change my identity. How do I do that?
-A: Go to Author tab. Update your account there.
-
-Q: How do I create my post?
-A: Go to Entries tab. Create your first entry there.
-
-Q: How do I update or delete my post?
-A: Please, you can do it in Entries tab.
-
-Q: Why the avatar didn't shown as I expected?
-A: You have to create a Gravatar ID by your email address in Author configuration.
-
-Q: Why some elements doesn't rendered well?
-A: Composer update may help. But if the error still ocured, you may assign an issue. I'll fix as fast as I can.
-
-Q: How can I change theme?
-A: See in templating and configuration section.
-
-Q: Can I use plain text instead of markdown?
-A: Of course you can!
-
-Q: How do Viper attach a picture?
-A: You CAN NOT attach picture to your post via VIPER, but you can use markdown syntax to attach the picture. First, upload your pic to somewhere, and then attach it to your post.
-
-Q: Can Viper attach a video?
-A: Of course, you CAN NOT. You wanna build a YouTube or what?
-
-Q: I don't want use MongoDB, I want to use MySQL or SQL-Lite.
-A: You can change them in config. It's a NORM feautre. But keep in mind, I HAVEN'T test it yet, so you have to create your own schema before you use that database. You must change the Norm config in `./config/chunks/norm.php`
-
-Q: I want to change my avatar.
-A: Delete the avatar.jpeg in './www/img/avatar.jpeg' and put your own there. The prefer dimension is: 80x80.
-
-Q: I want to add some feature. Can I?
-A: Of course you can. Read the Developer Notes section.
-```
+|   Q   |   A   |
+|-------|-------|
+|What is Viper? | Viper is a carry ranged agility hero. Whoops. I mean, It's a very small and simple blog management system. Using markdown syntax for writing.|
+|Why should I use Viper? | If you want a simple blog, share your mind, or maybe code. This is a good choice. Writing entry is so funny and i't really simple.|
+|I want to change my identity. How do I do that? | Go to Author tab. Update your account there.|
+|How do I create my post? | Go to Entries tab. Create your first entry there.|
+|How do I update or delete my post? | Please, Sir, you can do it in Entries tab.|
+|Why the avatar didn't shown as I expected? | You have to create a Gravatar ID by your email address in Author configuration.|
+|Why some elements doesn't rendered well? | Composer update may help. But if the error still ocured, you may assign an issue. I'll fix as fast as I can.|
+|How can I change theme? | See in templating and configuration section.|
+|Can I use plain text instead of markdown? | Of course you can!|
+|How do Viper attach a picture? | You CAN NOT attach picture to your post via VIPER, but you can use markdown syntax to attach the picture. First, upload your pic to somewhere, and then attach it to your post.|
+|Can Viper attach a video? | Of course, you **CAN NOT**. You wanna build a YouTube or what?|
+|I don't want use MongoDB, I want to use MySQL or SQL-Lite. | You can change them in config. It's a NORM feautre. But keep in mind, I HAVEN'T test it yet, so you have to create your own schema before you use that database. You must change the Norm config in `./config/chunks/norm.php`|
+|I want to change my avatar. | Delete the avatar.jpeg in `./www/img/avatar.jpeg` and put your own there. The prefer dimension is: 80x80.|
+|I want to add some feature. Can I? | Of course you can. Read the Developer Notes section.|
 
 # Developer Notes
 - Clone this repo
