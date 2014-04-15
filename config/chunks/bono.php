@@ -36,7 +36,7 @@ return array(
     'bono.controllers' => array(
         'default' => '\\Norm\\Controller\\NormController',
         'mapping' => array(
-            '/author'  => '\\Viper\\Controller\\AuthorController',
+            '/author'  => null,
             '/tags'    => null,
             '/entries' => '\\Viper\\Controller\\EntriesController',
         ),

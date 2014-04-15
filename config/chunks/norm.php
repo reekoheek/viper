@@ -49,6 +49,7 @@ return array(
                         'options' => array('cost' => 12),
                     )
                 ),
+                'hidden' => array('password'),
                 'schema' => array(
                     'username'   => String::getInstance('username')->filter('trim|required|unique:Author,username'),
                     'email'      => String::getInstance('email')->filter('trim|required|unique:Author,email'),
