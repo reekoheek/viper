@@ -115,7 +115,7 @@
             $.ajax({
                 url: window.URL_SITE + 'entries/' + _.last(window.location.pathname.split('/')) + '.json'
             }).done(function (data) {
-                $('body').loadie(0.6);
+                $('body').loadie(0.7);
 
                 renderTemplate(data).done(function () {
                     $('body').loadie(1);

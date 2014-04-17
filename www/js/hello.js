@@ -13,6 +13,7 @@
 
     $('body').loadie();
 
+    // The variables
     var tags = {},
         author = {},
         template = '',
@@ -38,17 +39,17 @@
             $('body').loadie(0.7);
 
             $.each(data, function (key, model) {
-                compiled      = _.template(template);
-                model.tag     = _.first(_.where(tags, {'$id': model.tags}));
-                model.author  = _.first(_.where(author, {'$id': model.$created_by}));
+                compiled            = _.template(template);
+                model.tag           = _.first(_.where(tags, {'$id': model.tags}));
+                model.author        = _.first(_.where(author, {'$id': model.$created_by}));
                 model.$created_time = moment(model.$created_time).format('llll');
-                preview       = $(marked(model.content)).filter(function () {
+                preview             = $(marked(model.content)).filter(function () {
                     return !!$.trim(this.innerHTML || this.data);
                 });
-                model.preview = $('<div>').append(preview[0]).append(preview[1]).html();
-                data.URL_BASE = window.URL_BASE;
-                data.URL_SITE = window.URL_SITE;
-                model.url     = window.location.href;
+                model.preview       = $('<div>').append(preview[0]).append(preview[1]).html();
+                data.URL_BASE       = window.URL_BASE;
+                data.URL_SITE       = window.URL_SITE;
+                model.url           = window.location.href;
                 $('.container.posts').append(compiled(model));
             });
 
@@ -126,6 +127,7 @@
                 renderMatch();
             });
         };
+    // End of variables
 
     $.ajax({
         url: window.URL_SITE  + 'tags.json'
@@ -148,6 +150,7 @@
 
                 if (data.entries.length) {
                     renderTemplate(data).done(function () {
+                        $('body').loadie(0.8);
                         initialize();
                     });
                 } else {
@@ -155,6 +158,7 @@
                         url: window.URL_BASE + 'tpl/empty.tpl'
                     }).done(function (templateString) {
                         $('.container.posts').append(templateString);
+                        $('body').loadie(0.8);
                     });
                 }
 
