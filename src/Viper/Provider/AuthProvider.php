@@ -5,7 +5,7 @@ namespace Viper\Provider;
 use \Bono\Provider\Provider;
 
 /**
- * Resolve this class to the container, so it's being shared over IoC
+ * Resolve this class to the container, so it's being shared over Bono Container
  *
  * @author      Krisan Alfa Timur <krisan47@gmail.com>
  * @copyright   2013 PT Sagara Xinix Solusitama
