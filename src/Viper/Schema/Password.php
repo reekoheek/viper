@@ -2,6 +2,8 @@
 
 namespace Viper\Schema;
 
+use \Norm\Schema\Field;
+
 /**
  * Norm Schema that handle the password form
  *
@@ -11,7 +13,7 @@ namespace Viper\Schema;
  * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
  * @package     Viper
  */
-class Password extends \Norm\Schema\Field
+class Password extends Field
 {
 
     /**
