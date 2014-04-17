@@ -45,7 +45,7 @@ class ViperProvider extends Provider
         // Logout process
         $app->get('/logout', function () use ($app) {
             $app->login->deauth();
-            $app->flashNow('info', 'Successfully log out!');
+            $app->flash('info', 'Successfully log out!');
             return $app->response->redirect('/login');
         });
 
