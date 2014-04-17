@@ -46,7 +46,6 @@ return array(
     'bono.blade' => array(
         'templates' => array('../templates'),
         'cache'     => '../cache',
-        'layout'    => 'layout',
     ),
 
     // Bono Themeing
