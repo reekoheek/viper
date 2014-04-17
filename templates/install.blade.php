@@ -5,7 +5,6 @@ use \Bono\App;
 
 $app        = App::getInstance();
 $form       = new Form('Author');
-
 ?>
 
 <div class="row alert-row">
