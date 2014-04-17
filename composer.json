@@ -1,18 +1,25 @@
 {
     "name": "krisanalfa/viper",
     "description": "eVerything Is PERmited",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "autoload": {
+        "classmap": [
+            "/home/alfa/workspaces/internal/bono-blade/src",
+            "/home/alfa/workspaces/internal/blade-theme/src"
+        ],
         "psr-0": {
-            "Viper": "src/"
+            "Viper": "src/",
+            "Bono": "/home/alfa/workspaces/internal/bono/src",
+            "Norm": "/home/alfa/workspaces/internal/norm/src"
         }
     },
     "require": {
-        "xinix-technology/norm": "*",
-        "xinix-technology/bono": "*",
+        "xinix-technology/norm": "dev-master",
+        "xinix-technology/bono": "dev-master",
         "reekoheek/bono-component": "dev-master",
         "reekoheek/util": "dev-master",
-        "krisanalfa/bono-blade": "*",
+        "krisanalfa/bono-blade": "dev-master",
+        "krisanalfa/blade-theme": "dev-master",
         "filp/whoops": "1.0.10",
         "zeuxisoo/slim-whoops": "0.1.0"
     }

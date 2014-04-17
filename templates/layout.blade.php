@@ -21,7 +21,7 @@ $map  = $map['mapping'];
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
-    <link type="image/x-icon" href="{{ URL::base('img/favicon.png') }}" rel="Shortcut icon" />
+    <link type="image/x-icon" href="{{ URL::base('img/favicon.ico') }}" rel="Shortcut icon" />
 
     <link rel="stylesheet" href="{{ URL::base('css/naked.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/font-awesome.css') }}">

@@ -1,5 +1,5 @@
 <?php
-$entries = \Norm\Norm::factory('Tags')->find();
+$entries = \Norm\Norm::factory(ucfirst($self->get('name')))->find();
 ?>
 
 <select name="{{ $self->get('name') }}">

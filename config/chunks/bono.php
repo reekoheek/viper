@@ -50,7 +50,7 @@ return array(
 
     // Bono Themeing
     'bono.theme' => array(
-        'class' => '\\KrisanAlfa\\Blade\\Theme\\BladeTheme',
+        'class' => '\\KrisanAlfa\\Theme\\BladeTheme',
     ),
 
     // Bono Partial (segment of template)
