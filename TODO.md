@@ -3,5 +3,4 @@
 - Logo
 - Remind Password
 - Delete redirection
-- Scroll down editor when it's been changed
 - Create miration table for other database engine

@@ -25,6 +25,7 @@
 
     editor.on('change', function (event) {
         $('.le-preview').html(marked(editor.getValue()));
+        $('.le-preview').scrollTop($('.le-preview')[0].scrollHeight);
     });
 
     editor.on('blur', function (event) {
