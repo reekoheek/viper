@@ -28,7 +28,8 @@
         {{ entry }}
         <hr />
         <div class="action">
-            <a class="button twitter" href="https://twitter.com/share?url={{url}}&text={{title}}&via={{author.twitter}}&hashtags={{tag.name}}">
+            <a class="button twitter"
+                href="https://twitter.com/share?url={{url}}&text={{title}}&via={{author.twitter}}&hashtags={{tag.name}}">
                 <i class="fa fa-twitter"></i> Share on Twitter
             </a>
             <a class="button" href="{{ URL_SITE }}"><i class="fa fa-home"></i> Go home</a>
