@@ -19,8 +19,6 @@
         "reekoheek/bono-component": "dev-master",
         "reekoheek/util": "dev-master",
         "krisanalfa/bono-blade": "dev-master",
-        "krisanalfa/blade-theme": "dev-master",
-        "filp/whoops": "1.0.10",
-        "zeuxisoo/slim-whoops": "0.1.0"
+        "krisanalfa/blade-theme": "dev-master"
     }
 }

@@ -29,17 +29,17 @@ class ViperProvider extends Provider
 
         // Get the index page
         $app->get('/', function () use ($app) {
-            $app->view->render('hello');
+            $app->render('hello');
         });
 
         // Get the about page
         $app->get('/about', function () use ($app) {
-            $app->view->render('about');
+            $app->render('about');
         });
 
         // Get the login page
         $app->get('/login', function () use ($app) {
-            return $app->view->render('login');
+            return $app->render('login');
         });
 
         // Logout process
