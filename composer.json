@@ -3,14 +3,8 @@
     "description": "eVerything Is PERmited",
     "version": "0.0.3",
     "autoload": {
-        "classmap": [
-            "/home/alfa/workspaces/internal/bono-blade/src",
-            "/home/alfa/workspaces/internal/blade-theme/src"
-        ],
         "psr-0": {
-            "Viper": "src/",
-            "Bono": "/home/alfa/workspaces/internal/bono/src",
-            "Norm": "/home/alfa/workspaces/internal/norm/src"
+            "Viper": "src/"
         }
     },
     "require": {
@@ -19,6 +13,7 @@
         "reekoheek/bono-component": "dev-master",
         "reekoheek/util": "dev-master",
         "krisanalfa/bono-blade": "dev-master",
-        "krisanalfa/blade-theme": "dev-master"
+        "krisanalfa/blade-theme": "dev-master",
+        "ircmaxell/password-compat": "dev-master"
     }
 }
