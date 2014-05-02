@@ -1,7 +1,8 @@
 @section('content')
 <?php
-use \ROH\BonoComponent\PlainForm as Form;
-use \Bono\App;
+use ROH\BonoComponent\PlainForm as Form;
+use Bono\App;
+use Bono\Helper\Url;
 
 $app        = App::getInstance();
 $form       = new Form('Author');
@@ -26,7 +27,7 @@ $form       = new Form('Author');
     </h3>
 </div>
 
-<form action="{{ \Bono\Helper\Url::site('/install') }}" method="POST">
+<form action="{{ Url::site('/install') }}" method="POST">
     <fieldset>
         {{ $form->renderFields(@$entry) }}
     </fieldset>

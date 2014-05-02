@@ -1,7 +1,8 @@
 @section('content')
 <?php
 
-use \Bono\App;
+use Bono\App;
+use Bono\Helper\URL;
 
 $_app        = App::getInstance();
 $_controller = $_app->controller;
@@ -17,6 +18,6 @@ $_controller = $_app->controller;
     </fieldset>
 
     <input type="submit" value="OK" class="button alert">
-    <a href="{{ \Bono\Helper\URL::site($_controller->getRedirectUri()) }}" class="button">Cancel</a>
+    <a href="{{ URL::site($_controller->getRedirectUri()) }}" class="button">Cancel</a>
 </form>
 @endsection

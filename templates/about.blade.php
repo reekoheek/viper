@@ -1,5 +1,5 @@
 @section('content')
-<?php use \Bono\Helper\URL; ?>
+<?php use Bono\Helper\URL; ?>
 
 <div class="container" style="margin-bottom: 50px">
     <div class="row">

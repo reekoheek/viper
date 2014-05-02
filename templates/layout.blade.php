@@ -1,8 +1,9 @@
 <?php
 
-use \Bono\Helper\URL;
+use Bono\Helper\URL;
+use Bono\App;
 
-$app  = \Bono\App::getInstance();
+$app  = App::getInstance();
 $meta = $app->config('meta');
 $map  = $app->config('bono.controllers');
 $map  = $map['mapping'];

@@ -2,6 +2,8 @@
 
 namespace Viper\Observer;
 
+use Bono\App;
+
 /**
  * Save the user info to the database
  *
@@ -21,7 +23,7 @@ class Ownership
      */
     public function saving($model)
     {
-        $app  = \Bono\App::getInstance();
+        $app  = App::getInstance();
         $user = $app->login->user();
 
         if (is_null($model['$id'])) {

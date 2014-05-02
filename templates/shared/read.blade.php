@@ -1,8 +1,9 @@
 @section('content')
 <?php
 
-use \ROH\BonoComponent\PlainForm as Form;
-use \Bono\App;
+use ROH\BonoComponent\PlainForm as Form;
+use Bono\App;
+use Bono\Helper\URL;
 
 $_app        = App::getInstance();
 $_controller = $_app->controller;

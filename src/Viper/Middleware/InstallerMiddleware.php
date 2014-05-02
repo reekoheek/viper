@@ -2,6 +2,8 @@
 
 namespace Viper\Middleware;
 
+use Norm\Norm;
+
 /**
  * Try to add a new user to database if the author table is empty, don't worry, this process run only once for a
  * lifetime
@@ -40,7 +42,7 @@ class InstallerMiddleware extends \Slim\Middleware
      */
     public function call()
     {
-        $user = \Norm\Norm::factory('Author')->find();
+        $user = Norm::factory('Author')->find();
 
         // If there's no entry in `author' field
         if (empty($user->toArray())) {
@@ -55,7 +57,7 @@ class InstallerMiddleware extends \Slim\Middleware
                 if ($this->app->request->isPost()) {
                     try {
                         $entry  = $this->app->request->post();
-                        $model  = \Norm\Norm::factory('Author')->newInstance();
+                        $model  = Norm::factory('Author')->newInstance();
                         $result = $model->set($entry)->save();
 
                         $this->app->flash('info', 'New author has been successfully created');
@@ -70,7 +72,7 @@ class InstallerMiddleware extends \Slim\Middleware
             }
         } else {
             // If there's an author
-            $authors = \Norm\Norm::factory('Author')->find();
+            $authors = Norm::factory('Author')->find();
 
             foreach ($authors as $author) {
                 $email   = $author->get('email');

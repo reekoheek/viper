@@ -1,8 +1,8 @@
 @section('content')
 <?php
-use \Bono\App;
-use \Viper\Component\Form;
-use \Bono\Helper\URL;
+use Bono\App;
+use Viper\Component\Form;
+use Bono\Helper\URL;
 
 $app   = App::getInstance();
 $clazz = $app->controller->clazz;

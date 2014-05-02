@@ -1,5 +1,5 @@
 @section('content')
-<?php use \Bono\Helper\URL; ?>
+<?php use Bono\Helper\URL; ?>
 
 <div class="row">
     <div id="bloodhound" class="span-4">
