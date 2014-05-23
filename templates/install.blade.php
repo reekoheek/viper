@@ -1,5 +1,6 @@
 @section('content')
 <?php
+
 use ROH\BonoComponent\PlainForm as Form;
 use Bono\App;
 use Bono\Helper\Url;

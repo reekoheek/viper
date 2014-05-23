@@ -2,6 +2,8 @@
 
 namespace Viper\Middleware;
 
+use Slim\Middleware;
+
 /**
  * Check user access based on config and authentication
  *
@@ -11,7 +13,7 @@ namespace Viper\Middleware;
  * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
  * @package     Viper
  */
-class AuthMiddleware extends \Slim\Middleware
+class AuthMiddleware extends Middleware
 {
     /**
      * Checking config match against request

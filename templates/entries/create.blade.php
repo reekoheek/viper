@@ -1,5 +1,6 @@
 @section('content')
 <?php
+
 use Bono\App;
 use Viper\Component\Form;
 use Bono\Helper\URL;

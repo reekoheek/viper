@@ -2,7 +2,7 @@
 
 namespace Viper\Provider;
 
-use \Bono\Provider\Provider;
+use Bono\Provider\Provider;
 
 /**
  * Resolve this class to the container, so it's being shared over Bono Container
@@ -91,6 +91,7 @@ class AuthProvider extends Provider
                 if (isset($_SESSION['auth'][$id]['user'][$section])) {
                     return $_SESSION['auth'][$id]['user'][$section];
                 }
+
                 return null;
             }
         } else {
@@ -111,6 +112,7 @@ class AuthProvider extends Provider
             return (isset($_SESSION['auth'][$id]['login']) ? $_SESSION['auth'][$id]['login'] : false);
         } else {
             $_SESSION['auth'][$id] = array();
+
             return false;
         }
     }

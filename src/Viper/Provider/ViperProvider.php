@@ -39,14 +39,15 @@ class ViperProvider extends Provider
 
         // Get the login page
         $app->get('/login', function () use ($app) {
-            return $app->render('login');
+            $app->render('login');
         });
 
         // Logout process
         $app->get('/logout', function () use ($app) {
             $app->login->deauth();
             h('notification.info', 'Bye bye :(');
-            return $app->response->redirect('/login');
+
+            $app->response->redirect('/login');
         });
 
         // Login process
@@ -57,18 +58,21 @@ class ViperProvider extends Provider
             // Wrong username
             if (is_null($author)) {
                 h('notification.error', 'Invalid credentials');
-                return $app->response->template('login');
+
+                $app->render('login');
             }
 
             // Username and password match
             if (password_verify($post['password'], $author->get('password'))) {
                 $app->login->auth($author);
                 h('notification.info', 'Hello there :)');
+
                 return $app->response->redirect('/entries');
             } else {
                 // Wrong password
                 h('notification.error', 'Invalid credentials');
-                return $app->response->template('login');
+
+                $app->render('login');
             }
         });
     }

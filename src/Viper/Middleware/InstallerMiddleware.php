@@ -3,6 +3,7 @@
 namespace Viper\Middleware;
 
 use Norm\Norm;
+use Slim\Middleware;
 
 /**
  * Try to add a new user to database if the author table is empty, don't worry, this process run only once for a
@@ -14,7 +15,7 @@ use Norm\Norm;
  * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
  * @package     Viper
  */
-class InstallerMiddleware extends \Slim\Middleware
+class InstallerMiddleware extends Middleware
 {
     /**
      * Get either a Gravatar URL or complete image tag for a specified email address.

@@ -2,7 +2,7 @@
 
 namespace Viper\Schema;
 
-use \Norm\Schema\Field;
+use Norm\Schema\Field;
 
 /**
  * Norm Schema that handle the password form
@@ -17,7 +17,7 @@ class Password extends Field
 {
 
     /**
-     * Render read-write form
+     * [DEPRECATED] Render read-write form
      *
      * @param  string $key   Norm field name
      * @param  string $value The value of a field
@@ -40,7 +40,7 @@ class Password extends Field
     }
 
     /**
-     * Render cell table
+     * [DEPRECATED] Render cell table
      *
      * @param  string $key   Norm field name
      * @param  string $value The value of a field

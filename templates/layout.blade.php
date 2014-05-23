@@ -5,8 +5,6 @@ use Bono\App;
 
 $app  = App::getInstance();
 $meta = $app->config('meta');
-$map  = $app->config('bono.controllers');
-$map  = $map['mapping'];
 
 ?>
 

@@ -99,7 +99,6 @@ class Form
      */
     public function hidden($key, $value = ':empty:')
     {
-
         if ($value === ':empty:') {
             $value = $this->data($key);
         }
@@ -127,6 +126,7 @@ class Form
     public function of(&$data)
     {
         $this->data = &$data;
+
         return $this;
     }
 }

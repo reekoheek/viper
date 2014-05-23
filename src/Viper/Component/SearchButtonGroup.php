@@ -2,8 +2,7 @@
 
 namespace Viper\Component;
 
-use \Bono\App;
-use \Slim\View;
+use Bono\App;
 
 /**
  * Search Button Group (It's above the resource table)
