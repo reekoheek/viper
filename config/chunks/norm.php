@@ -1,11 +1,11 @@
 <?php
 
-use \Norm\Schema\String;
-use \Viper\Schema\Password;
-use \Norm\Schema\Integer;
-use \Norm\Schema\Boolean;
-use \Norm\Schema\Text;
-use \Norm\Schema\Reference;
+use Norm\Schema\String;
+use Viper\Schema\Password;
+use Norm\Schema\Integer;
+use Norm\Schema\Boolean;
+use Norm\Schema\Text;
+use Norm\Schema\Reference;
 
 // NORM
 return array(
@@ -57,9 +57,7 @@ return array(
                     'last_name'  => String::getInstance('last_name')->filter('trim'),
                     'twitter'    => String::getInstance('twitter')->filter('trim'),
                     'password'   => Password::getInstance('password')->filter('trim|required|confirmed')
-                        ->format('plain', function() {
-                            return '*hidden*';
-                        }),
+                        ->format('plain', function() { return '*hidden*'; }),
                 ),
             ),
             'Tags' => array(

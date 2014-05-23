@@ -18,7 +18,7 @@ class SearchButtonGroup
     protected $config;
 
     /**
-     * Contstructor, build the basic configuration
+     * Constructor, build the basic configuration
      *
      * @return void
      */

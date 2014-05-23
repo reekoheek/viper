@@ -1,7 +1,9 @@
 <?php
 
+use Bono\App;
+
 $config = array();
-$app    = \Bono\App::getInstance();
+$app    = App::getInstance();
 $path   = $app->config('config.path') . DIRECTORY_SEPARATOR . 'chunks';
 
 if ($directoryHandler = opendir($path)) {
