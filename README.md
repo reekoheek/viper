@@ -48,20 +48,7 @@ Viper use Blade Template Engine. You must have a basic knowledge of Blade Layout
 
     <div class="le-content">
         <!-- ALERT SECTION -->
-        <div class="row alert-row">
-            @if(isset($flash['error']))
-                <div class="alert error">
-                    <button type="button" class="close">×</button>
-                    {{ $flash['error'] }}
-                </div>
-            @endif
-            @if(isset($flash['info']))
-                <div class="alert success">
-                    <button type="button" class="close">×</button>
-                    {{ $flash['info'] }}
-                </div>
-            @endif
-        </div>
+        {{ f('notification.show') }}
         <!-- END OF ALERT SECTION -->
 
         <!-- CONTENT GOES HERE -->
