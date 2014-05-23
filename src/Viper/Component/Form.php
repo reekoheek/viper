@@ -60,7 +60,7 @@ class Form
             $value = $this->data($key);
         }
 
-        return $this->fields[$key]->input($value, $this->data);
+        return $this->fields[$key]->formatInput($value, $this->data);
     }
 
     /**

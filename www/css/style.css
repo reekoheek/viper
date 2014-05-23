@@ -7,9 +7,11 @@ button, .button , input[type="submit"] { background-color: #95C648; }
 a:hover { color: #3B5A1B; }
 input:focus { border:1px solid #95C648; }
 .button.warning { background-color: #E0AD24 }
+.hide { display: none; }
 
 /* Web */
 .tag { color: #8BD837; }
+.alert.info { background-color: #95C648; }
 .help-block { margin-top: -14px; display: block; margin-bottom: 20px; background-color: red; line-height: 30px; color: white; padding-left: 10px; font-style: italic; }
 .navbar ul.button-group li a { line-height: 120%; background: transparent; color: #95C648; border: 1px solid #95C648; }
 .navbar ul.button-group li a:hover { background-color: #3B5A1B; border: 1px solid #3B5A1B; }

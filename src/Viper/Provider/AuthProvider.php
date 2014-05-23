@@ -32,10 +32,6 @@ class AuthProvider extends Provider
         $app          = $this->app;
         $this->config = $this->app->config('auth');
 
-        if (! isset($_SESSION)) {
-            session_start();
-        }
-
         $that = $this;
 
         $app->container->singleton('login', function ($c) use ($that) {
@@ -52,6 +48,8 @@ class AuthProvider extends Provider
     public function auth($user)
     {
         $id = $this->config['id'];
+
+        $user = $user->toArray();
 
         $_SESSION['auth'][$id]          = array();
         $_SESSION['auth'][$id]['user']  = $user;

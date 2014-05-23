@@ -17,9 +17,11 @@ return array(
     // The Middlewares
     'bono.middlewares' => array(
         '\\Viper\\Middleware\\InstallerMiddleware',
-        '\\Viper\\Middleware\\AuthMiddleware',
         '\\Bono\\Middleware\\ContentNegotiatorMiddleware',
         '\\Bono\\Middleware\\ControllerMiddleware',
+        '\\Viper\\Middleware\\AuthMiddleware',
+        '\\Bono\\Middleware\\NotificationMiddleware',
+        '\\Bono\\Middleware\\SessionMiddleware',
     ),
 
     // Content Negotiatior

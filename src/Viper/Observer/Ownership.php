@@ -27,9 +27,9 @@ class Ownership
         $user = $app->login->user();
 
         if (is_null($model['$id'])) {
-            $model['$updated_by'] = $model['$created_by'] = ($user) ? $user->getId() : 'system';
+            $model['$updated_by'] = $model['$created_by'] = ($user) ? $user['$id'] : 'system';
         } else {
-            $model['$updated_by'] = $user->getId();
+            $model['$updated_by'] = $user['$id'];
         }
     }
 }

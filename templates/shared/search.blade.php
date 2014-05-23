@@ -1,9 +1,9 @@
 @section('content')
 <?php
 
-use \ROH\BonoComponent\PlainTable as Table;
-use \Viper\Component\SearchButtonGroup;
-use \Bono\App;
+use ROH\BonoComponent\PlainTable as Table;
+use Viper\Component\SearchButtonGroup;
+use Bono\App;
 
 $app               = App::getInstance();
 $table             = new Table($app->controller->clazz);

@@ -37,21 +37,7 @@ $map  = $map['mapping'];
     @include('components.navbar')
 
     <div class="le-content">
-        <div class="row alert-row">
-            @if(isset($flash['error']))
-                <div class="alert error">
-                    <button type="button" class="close">×</button>
-                    {{ $flash['error'] }}
-                </div>
-            @endif
-            @if(isset($flash['info']))
-                <div class="alert success">
-                    <button type="button" class="close">×</button>
-                    {{ $flash['info'] }}
-                </div>
-            @endif
-        </div>
-
+        {{ f('notification.show') }}
         @yield('content')
     </div>
 
@@ -60,6 +46,7 @@ $map  = $map['mapping'];
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/moment.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.loadie.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/main.js') }}"></script>
     <script type="text/javascript" charset="utf-8">
     (function(){
         var URL_SITE = window.URL_SITE = '{{ URL::site() }}',

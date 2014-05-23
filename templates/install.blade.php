@@ -4,8 +4,8 @@ use ROH\BonoComponent\PlainForm as Form;
 use Bono\App;
 use Bono\Helper\Url;
 
-$app        = App::getInstance();
-$form       = new Form('Author');
+$app  = App::getInstance();
+$form = new Form('Author');
 ?>
 
 <div class="row alert-row">

@@ -4,17 +4,11 @@ use Bono\App;
 use Viper\Component\Form;
 use Bono\Helper\URL;
 
-$app   = App::getInstance();
-$clazz = $app->controller->clazz;
-$form  = Form::create($clazz)->of($entry);
+$form = Form::create(App::getInstance()->controller->clazz)->of($entry);
 
 ?>
 
 <div class="row">
-    <div class="alert" style="display: none">
-        <button type="button" class="close">×</button>
-        <span></span>
-    </div>
     <form action="">
         {{ $form->input('title') }}
 

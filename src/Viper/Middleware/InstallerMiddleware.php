@@ -60,7 +60,7 @@ class InstallerMiddleware extends \Slim\Middleware
                         $model  = Norm::factory('Author')->newInstance();
                         $result = $model->set($entry)->save();
 
-                        $this->app->flash('info', 'New author has been successfully created');
+                        h('notification.info', 'New author has been successfully created');
                         $this->app->response->redirect('/login');
                     } catch(\Exception $e) {
                         throw $e;

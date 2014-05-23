@@ -5,9 +5,7 @@ use Bono\App;
 use Viper\Component\Form;
 use Bono\Helper\URL;
 
-$app   = App::getInstance();
-$clazz = $app->controller->clazz;
-$form  = Form::create($clazz)->of($entry);
+$form = Form::create(App::getInstance()->controller->clazz)->of($entry);
 
 ?>
 

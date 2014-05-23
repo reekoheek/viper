@@ -1,4 +1,4 @@
-<?php use \ROH\Util\Inflector; ?>
+<?php use ROH\Util\Inflector; ?>
 
 <div class="button-group">
     @foreach ($config as $key => $button)

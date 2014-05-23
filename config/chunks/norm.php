@@ -56,7 +56,10 @@ return array(
                     'first_name' => String::getInstance('first_name')->filter('trim'),
                     'last_name'  => String::getInstance('last_name')->filter('trim'),
                     'twitter'    => String::getInstance('twitter')->filter('trim'),
-                    'password'   => Password::getInstance('password')->filter('trim|required|confirmed'),
+                    'password'   => Password::getInstance('password')->filter('trim|required|confirmed')
+                        ->format('plain', function() {
+                            return '*hidden*';
+                        }),
                 ),
             ),
             'Tags' => array(
@@ -68,8 +71,8 @@ return array(
                 'schema' => array(
                     'title'   => String::getInstance('title')->filter('trim|required'),
                     'content' => String::getInstance('content')->filter('trim|required')
-                        ->set('cellFormat', function ($value, $entry, $itself) {
-                            return substr($value, 0, 40) . '...';
+                        ->format('plain', function($value) {
+                            return substr($value, 0, 50) . '...';
                         }),
                     'tags'    => Reference::getInstance('tags')->to('Tags', null, 'name'),
                 )

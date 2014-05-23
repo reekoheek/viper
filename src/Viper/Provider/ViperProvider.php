@@ -45,7 +45,7 @@ class ViperProvider extends Provider
         // Logout process
         $app->get('/logout', function () use ($app) {
             $app->login->deauth();
-            $app->flash('info', 'Successfully log out!');
+            h('notification.info', 'Bye bye :(');
             return $app->response->redirect('/login');
         });
 
@@ -56,18 +56,18 @@ class ViperProvider extends Provider
 
             // Wrong username
             if (is_null($author)) {
-                $app->flashNow('error', 'Wrong credentials!');
+                h('notification.error', 'Invalid credentials');
                 return $app->response->template('login');
             }
 
             // Username and password match
             if (password_verify($post['password'], $author->get('password'))) {
                 $app->login->auth($author);
-                $app->flash('info', 'Successfully log in!');
+                h('notification.info', 'Hello there :)');
                 return $app->response->redirect('/entries');
             } else {
                 // Wrong password
-                $app->flashNow('error', 'Wrong credentials!');
+                h('notification.error', 'Invalid credentials');
                 return $app->response->template('login');
             }
         });
