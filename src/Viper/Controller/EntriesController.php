@@ -8,16 +8,20 @@ use \Bono\App;
 /**
  * We shouldn't get the data twice from database when render the 'read' page
  *
- * @author      Krisan Alfa Timur <krisan47@gmail.com>
- * @copyright   2013 PT Sagara Xinix Solusitama
- * @link        http://xinix.co.id/products/viper
- * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
- * @package     Viper
+ * @category  App
+ * @package   Viper
+ * @author    Krisan Alfa Timur <krisan47@gmail.com>
+ * @copyright 2013 PT Sagara Xinix Solusitama
+ * @license   https://raw.github.com/krisanalfa/viper/master/LICENSE MIT
+ * @version   Release: 0.0.1
+ * @link      http://xinix.co.id/products/viper
  */
 class EntriesController extends NormController
 {
     /**
      * Find specific id
+     *
+     * @param int $id Id you want to search
      *
      * @return void
      */

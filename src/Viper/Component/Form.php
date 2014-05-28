@@ -8,11 +8,13 @@ use Norm\Norm;
 /**
  * On the fly table creation (without controller)
  *
- * @author      Krisan Alfa Timur <krisan47@gmail.com>
- * @copyright   2013 PT Sagara Xinix Solusitama
- * @link        http://xinix.co.id/products/viper
- * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
- * @package     Viper
+ * @category  App
+ * @package   Viper
+ * @author    Krisan Alfa Timur <krisan47@gmail.com>
+ * @copyright 2013 PT Sagara Xinix Solusitama
+ * @license   https://raw.github.com/krisanalfa/viper/master/LICENSE MIT
+ * @version   Release: 0.0.1
+ * @link      http://xinix.co.id/products/viper
  */
 class Form
 {
@@ -26,7 +28,8 @@ class Form
     /**
      * Create a new Norm collection
      *
-     * @param  string $collection Collection name
+     * @param string $collection Collection name
+     *
      * @return \Norm\Collection
      */
     public static function create($collection = '')
@@ -38,6 +41,7 @@ class Form
      * The class constructor
      *
      * @param string $collection Collection name
+     *
      * @return void
      */
     public function __construct($collection)
@@ -50,8 +54,9 @@ class Form
     /**
      * Render read-write form
      *
-     * @param  string $key   Norm field name
-     * @param  string $value The value of a field
+     * @param string $key   Norm field name
+     * @param string $value The value of a field
+     *
      * @return string        HTML string
      */
     public function input($key, $value = ':empty:')
@@ -66,8 +71,9 @@ class Form
     /**
      * Render read-only block
      *
-     * @param  string $key   Norm field name
-     * @param  string $value The value of a field
+     * @param string $key   Norm field name
+     * @param string $value The value of a field
+     *
      * @return string        HTML string
      */
     public function readonly($key, $value = ':empty:')
@@ -81,8 +87,9 @@ class Form
     /**
      * Render table
      *
-     * @param  string $key   Norm field name
-     * @param  string $value The value of a field
+     * @param string $key   Norm field name
+     * @param string $value The value of a field
+     *
      * @return string        HTML string
      */
     public function cell($key, $value)
@@ -93,8 +100,9 @@ class Form
     /**
      * Render hidden form
      *
-     * @param  string $key   Norm field name
-     * @param  string $value The value of a field
+     * @param string $key   Norm field name
+     * @param string $value The value of a field
+     *
      * @return string        HTML string
      */
     public function hidden($key, $value = ':empty:')
@@ -109,7 +117,8 @@ class Form
     /**
      * Get the field value
      *
-     * @param  string $key   Norm field name
+     * @param string $key Norm field name
+     *
      * @return mixed         The field value of a Norm\Model
      */
     public function data($key)
@@ -120,7 +129,8 @@ class Form
     /**
      * Render read-write form
      *
-     * @param  string $data   Norm schema name
+     * @param string &$data Norm schema name
+     *
      * @return Viper\Form
      */
     public function of(&$data)

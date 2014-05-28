@@ -7,11 +7,13 @@ use Bono\Provider\Provider;
 /**
  * Resolve this class to the container, so it's being shared over Bono Container
  *
- * @author      Krisan Alfa Timur <krisan47@gmail.com>
- * @copyright   2013 PT Sagara Xinix Solusitama
- * @link        http://xinix.co.id/products/viper
- * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
- * @package     Viper
+ * @category  App
+ * @package   Viper
+ * @author    Krisan Alfa Timur <krisan47@gmail.com>
+ * @copyright 2013 PT Sagara Xinix Solusitama
+ * @license   https://raw.github.com/krisanalfa/viper/master/LICENSE MIT
+ * @version   Release: 0.0.1
+ * @link      http://xinix.co.id/products/viper
  */
 class AuthProvider extends Provider
 {
@@ -34,15 +36,18 @@ class AuthProvider extends Provider
 
         $that = $this;
 
-        $app->container->singleton('login', function ($c) use ($that) {
-            return $that;
-        });
+        $app->container->singleton(
+            'login', function ($c) use ($that) {
+                return $that;
+            }
+        );
     }
 
     /**
      * Authenticate a single user
      *
-     * @param  array $user The user who is being authenticated
+     * @param array $user The user who is being authenticated
+     *
      * @return void
      */
     public function auth($user)
@@ -72,8 +77,9 @@ class AuthProvider extends Provider
     /**
      * Get information about the authenticated user
      *
-     * @param  string $section The section of user info that we want to investigate
-     * @param  string $value   The value that we want to change into something
+     * @param string $section The section of user info that we want to investigate
+     * @param string $value   The value that we want to change into something
+     *
      * @return mixed           Can be null if the user isn't auth'd
      */
     public function user($section = null, $value = null)
@@ -81,7 +87,7 @@ class AuthProvider extends Provider
         $id = $this->config['id'];
 
         if ($this->check()) {
-            if (!is_null($value) and (!is_null($section))) {
+            if (! is_null($value) and (!is_null($section))) {
                 $_SESSION['auth'][$id]['user'][$section] = $value;
             }
 
@@ -106,14 +112,17 @@ class AuthProvider extends Provider
      */
     public function check()
     {
-        $id = $this->config['id'];
+        $id  = $this->config['id'];
+        $ret = false;
 
         if (isset($_SESSION['auth'][$id])) {
-            return (isset($_SESSION['auth'][$id]['login']) ? $_SESSION['auth'][$id]['login'] : false);
+            if(isset($_SESSION['auth'][$id]['login'])) {
+                $ret = $_SESSION['auth'][$id]['login'];
+            }
         } else {
             $_SESSION['auth'][$id] = array();
-
-            return false;
         }
+
+        return $ret;
     }
 }

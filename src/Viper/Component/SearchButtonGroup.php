@@ -7,11 +7,13 @@ use Bono\App;
 /**
  * Search Button Group (It's above the resource table)
  *
- * @author      Krisan Alfa Timur <krisan47@gmail.com>
- * @copyright   2013 PT Sagara Xinix Solusitama
- * @link        http://xinix.co.id/products/viper
- * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
- * @package     Viper
+ * @category  App
+ * @package   Viper
+ * @author    Krisan Alfa Timur <krisan47@gmail.com>
+ * @copyright 2013 PT Sagara Xinix Solusitama
+ * @license   https://raw.github.com/krisanalfa/viper/master/LICENSE MIT
+ * @version   Release: 0.0.1
+ * @link      http://xinix.co.id/products/viper
  */
 class SearchButtonGroup
 {
@@ -43,10 +45,12 @@ class SearchButtonGroup
     {
         $app = App::getInstance();
 
-        return $app->theme->partial('components/searchButtonGroup', array(
-            'self'       => $this,
-            'controller' => $app->controller,
-            'config'     => $this->config,
-        ));
+        return $app->theme->partial(
+            'components/searchButtonGroup', array(
+                'self'       => $this,
+                'controller' => $app->controller,
+                'config'     => $this->config,
+            )
+        );
     }
 }

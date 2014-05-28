@@ -7,22 +7,25 @@ use Slim\Middleware;
 /**
  * Check user access based on config and authentication
  *
- * @author      Krisan Alfa Timur <krisan47@gmail.com>
- * @copyright   2013 PT Sagara Xinix Solusitama
- * @link        http://xinix.co.id/products/viper
- * @license     https://raw.github.com/krisanalfa/viper/master/LICENSE
- * @package     Viper
+ * @category  App
+ * @package   Viper
+ * @author    Krisan Alfa Timur <krisan47@gmail.com>
+ * @copyright 2013 PT Sagara Xinix Solusitama
+ * @license   https://raw.github.com/krisanalfa/viper/master/LICENSE MIT
+ * @version   Release: 0.0.1
+ * @link      http://xinix.co.id/products/viper
  */
 class AuthMiddleware extends Middleware
 {
     /**
      * Checking config match against request
      *
-     * @param  string $string The request path info
-     * @param  array  $array  A stack of URI that we want to check against the request
+     * @param string $string The request path info
+     * @param array  $array  Array of URI that we want to check against the request
+     *
      * @return bool
      */
-    private function inArray($string, $array = array())
+    private function _inArray($string, $array = array())
     {
         foreach ($array as $key => $value) {
             if (fnmatch($key, $string)) {
@@ -36,17 +39,18 @@ class AuthMiddleware extends Middleware
     /**
      * Check user access based on config and authentication
      *
-     * @return \Bono\Http\Response
+     * @return void
      */
     public function call()
     {
-        $app      = $this->app;
-        $config   = $app->config('auth');
-        $pathInfo = $app->request->getPathInfo();
-        $allow    = false;
+        $app          = $this->app;
+        $config       = $app->config('auth');
+        $pathInfo     = $app->request->getPathInfo();
+        $allow        = $this->_inArray($pathInfo, $config['allow']);
+        $inRestricted = $this->_inArray($pathInfo, $config['restricted']);
 
         // If request is allowed in config and not in restricted page
-        if ($this->inArray($pathInfo, $config['allow']) and ! $this->inArray($pathInfo, $config['restricted'])) {
+        if ($allow and ! $inRestricted) {
             $allow = true;
         }
 
