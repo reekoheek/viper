@@ -59,7 +59,7 @@ class ViperProvider extends Provider
             if (is_null($author)) {
                 h('notification.error', 'Invalid credentials');
 
-                $app->render('login');
+                return $app->render('login');
             }
 
             // Username and password match

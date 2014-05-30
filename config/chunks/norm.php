@@ -56,8 +56,7 @@ return array(
                     'first_name' => String::getInstance('first_name')->filter('trim'),
                     'last_name'  => String::getInstance('last_name')->filter('trim'),
                     'twitter'    => String::getInstance('twitter')->filter('trim'),
-                    'password'   => Password::getInstance('password')->filter('trim|required|confirmed')
-                        ->format('plain', function() { return '*hidden*'; }),
+                    'password'   => Password::getInstance('password')->filter('trim|required|confirmed'),
                 ),
             ),
             'Tags' => array(
@@ -72,7 +71,7 @@ return array(
                         ->format('plain', function($value) {
                             return substr($value, 0, 50) . '...';
                         }),
-                    'tags'    => Reference::getInstance('tags')->to('Tags', null, 'name'),
+                    'tags'    => Reference::getInstance('tags')->to('Tags', 'name'),
                 )
             )
         ),

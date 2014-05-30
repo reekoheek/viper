@@ -17,13 +17,13 @@ class Password extends Field
 {
 
     /**
-     * [DEPRECATED] Render read-write form
+     * Render read-write form
      *
      * @param  string $key   Norm field name
      * @param  string $value The value of a field
      * @return string        HTML string
      */
-    public function input($value, $entry = null)
+    public function formatInput($value, $entry = null)
     {
         if ($this['readonly']) {
             return '<span class="field">*hidden*</span>';
@@ -40,13 +40,13 @@ class Password extends Field
     }
 
     /**
-     * [DEPRECATED] Render cell table
+     * Render cell table
      *
      * @param  string $key   Norm field name
      * @param  string $value The value of a field
      * @return string        HTML string
      */
-    public function cell($value, $entry = null)
+    public function formatPlain($value, $entry = null)
     {
         if ($this->has('cellFormat')) {
             return parent::cell($value, $entry);

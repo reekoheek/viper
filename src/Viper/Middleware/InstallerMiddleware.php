@@ -64,7 +64,7 @@ class InstallerMiddleware extends Middleware
                     try {
                         $entry   = $this->app->request->post();
                         $model   = Norm::factory('Author')->newInstance();
-                        $result  = $model->set($entry)->save();
+                        $result  = $model->set($entry)->save(array('filter' => false));
                         $message = 'New author has been successfully created';
 
                         h('notification.info', $message);

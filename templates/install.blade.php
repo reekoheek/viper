@@ -9,15 +9,6 @@ $app  = App::getInstance();
 $form = new Form('Author');
 ?>
 
-<div class="row alert-row">
-    @if(isset($_SESSION['error']))
-        <div class="alert error">
-            <button type="button" class="close">×</button>
-            {{ $_SESSION['error'] }}
-        </div>
-    @endif
-</div>
-
 <div class="container">
     <h1 class="text-center">Welcome to Viper Installation Page</h1>
     <h3>
