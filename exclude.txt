@@ -2,3 +2,8 @@
 .gitignore
 exclude.txt
 cache/*
+viper.sublime-project
+viper.sublime-workspace
+README.md
+TODO.md
+LICENSE
