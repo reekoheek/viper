@@ -30,9 +30,9 @@
 <div class="container" style="margin: 50px 0 0 0">
     <h2 class="text-center"><small>Creative by Krisan Alfa Timur</small></h2>
     <div class="text-center">
-        <a href="#"><i class="fa fa-github fa-2x"></i></a>
-        <a href="#"><i class="fa fa-twitter fa-2x"></i></a>
-        <a href="#"><i class="fa fa-facebook fa-2x"></i></a>
+        <a taget="_blank" href="https://github.com/krisanalfa"><i class="fa fa-github fa-2x"></i></a>
+        <a taget="_blank" href="https://twitter.com/krisanalfa"><i class="fa fa-twitter fa-2x"></i></a>
+        <a taget="_blank" href="https://facebook.com/KrisanAlfa.T"><i class="fa fa-facebook fa-2x"></i></a>
     </div>
     <h4 class="text-center"><small>PT. Sagara Xinix Solusitama</small></h4>
 </div>
