@@ -120,6 +120,8 @@
                 renderTemplate(data).done(function () {
                     $('body').loadie(1);
                 });
+            }).fail(function() {
+                window.location.href = window.URL_SITE + 'notfound';
             });
         });
 

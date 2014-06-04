@@ -27,13 +27,13 @@ class ErrorHandlerProvider extends Provider
         // If not in debug mode
         if (! $app->config('debug')) {
             $app->error(function () use ($app) {
-                $app->view->render('error', array(), 500);
+                $app->render('error', array(), 500);
                 $app->stop();
             });
 
             // Show custom error 404 page
             $app->notFound(function () use ($app) {
-                $app->view->render('notFound', array(), 404);
+                $app->render('notFound', array(), 404);
                 $app->stop();
             });
         }

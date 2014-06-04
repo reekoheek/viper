@@ -7,3 +7,4 @@ viper.sublime-workspace
 README.md
 TODO.md
 LICENSE
+config/chunks/app.php
