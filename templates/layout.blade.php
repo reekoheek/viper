@@ -28,12 +28,13 @@ $meta = $app->config('meta');
 
     <link rel="stylesheet" href="{{ URL::base('fonts/montserrat/stylesheet.css') }}">
     <link rel="stylesheet" href="{{ URL::base('fonts/open_sans/stylesheet.css') }}">
-    <link rel="stylesheet" href="{{ URL::base('styles/main.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('css/headroom.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/naked.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ URL::base('js/highlight/styles/github.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/loadie.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/style.css') }}">
+
     @yield('styler')
 </head>
 
@@ -42,6 +43,7 @@ $meta = $app->config('meta');
 
     <div class="le-content">
         {{ f('notification.show') }}
+
         @yield('content')
     </div>
 
@@ -49,8 +51,8 @@ $meta = $app->config('meta');
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/underscore.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/moment.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.loadie.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/headroom.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
-    <script type="text/javascript" charset="utf-8" src="{{ URL::base('scripts/vendor/headroom.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/main.js') }}"></script>
     <script type="text/javascript" charset="utf-8">
     (function(){
