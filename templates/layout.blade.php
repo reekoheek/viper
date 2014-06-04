@@ -31,7 +31,7 @@ $meta = $app->config('meta');
     <link rel="stylesheet" href="{{ URL::base('styles/main.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/naked.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/font-awesome.css') }}">
-    <link rel="stylesheet" href="{{ URL::base('js/highlight/styles/solarized_light.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('js/highlight/styles/github.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/loadie.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/style.css') }}">
     @yield('styler')
@@ -50,7 +50,7 @@ $meta = $app->config('meta');
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/moment.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.loadie.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
-    <script type="text/javascript" charset="utf-8" src="{{ URL::base('scripts/main.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('scripts/vendor/headroom.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/main.js') }}"></script>
     <script type="text/javascript" charset="utf-8">
     (function(){

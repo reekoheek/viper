@@ -34,6 +34,32 @@
         }
     });
 
+    $(document).on('click', '.show-preview', function(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        $('.le-action').css('position', 'relative');
+
+        $(event.target).text('Close Preview');
+        $(event.target).attr('class', 'close-preview');
+
+        $('.le-editor').hide();
+        $('.le-preview').show();
+    });
+
+    $(document).on('click', '.close-preview', function(event) {
+        event.preventDefault();
+        event.stopImmediatePropagation();
+
+        $('.le-action').css('position', 'absolute');
+
+        $(event.target).text('Preview');
+        $(event.target).attr('class', 'show-preview');
+
+        $('.le-editor').show();
+        $('.le-preview').hide();
+    });
+
     $('.le-action .save').on('click', function (event) {
         event.preventDefault();
         event.stopImmediatePropagation();

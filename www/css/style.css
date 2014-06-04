@@ -45,8 +45,8 @@ body .le-content .container .row  { margin-bottom: 20px;; }
 body .le-content .container div article .action { padding-top:25px; }
 body .le-content { padding-top:70px; margin:0 5px; }
 body .le-content .prettyprint { border-radius:5px; background-color:#eee; }
-body div form .le-editor { position:absolute; top:175px; right:50%; bottom:50px; left:0; font-size:13px; }
-body div form .le-preview { position:absolute; overflow:auto; border-left:2px solid #eee; padding-left:5px; top:175px; right:0; bottom:50px; left:50%; font-size:13px; }
+body div form .le-editor { position:absolute; top: 114px; right:0; bottom:50px; left:0; font-size:13px; }
+body div form .le-preview { display:none; overflow:auto; border-left:2px solid #eee; padding-left:5px; font-size:13px; padding: 15px; border: 1px solid #eee; border-radius: 10px; }
 body div form .le-preview pre { padding:10px; margin-top:-5px; border-radius:3px; background-color:#f8f8f8; border: 1px solid #ddd; overflow:auto; line-height:20px; }
 body div form .le-preview .le-holder { position:absolute; margin:-50px 0 0 -50px; left:50%; top:50%; }
 body div form .le-action { position:absolute; bottom:5px; }

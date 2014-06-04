@@ -11,18 +11,27 @@ $form = Form::create(App::getInstance()->controller->clazz)->of($entry);
 
 <div class="row">
     <form action="">
-        {{ $form->input('title') }}
-
-        <label>Tags</label>
-        {{ $form->input('tags') }}
+        <div class="span-12">
+            <div class="row">
+                <div class="span-6">
+                    {{ $form->input('title') }}
+                </div>
+                <div class="span-6">
+                    {{ $form->input('tags') }}
+                </div>
+            </div>
+        </div>
 
         <input type="hidden" name="content">
 
         <div class="le-editor"></div>
+
         <div class="le-preview">
             <h1 class="le-holder">PREVIEW</h1>
         </div>
+
         <div class="le-action">
+            <button class="show-preview">Preview</button>
             <button class="save">Save</button>
             <a href="{{ URL::base('entries') }}" class="button warning">Cancel</a>
         </div>
