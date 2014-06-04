@@ -47,6 +47,25 @@ function stylized () {
 $(document).ready(function() {
     'use strict';
 
+    var header = document.querySelector("#header");
+
+    if(window.location.hash) {
+        header.classList.add("slide--up");
+    }
+
+    new window.Headroom(header, {
+        tolerance: {
+            down : 10,
+            up : 20
+        },
+        offset : 205,
+        classes: {
+            initial: "slide",
+            pinned: "slide--reset",
+            unpinned: "slide--up"
+        }
+    }).init();
+
     $(".alert").click(function() { $(this).addClass("hide"); });
 
     var s4 = window.s4 = function () { return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); };

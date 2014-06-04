@@ -1,4 +1,4 @@
-<div class="navbar">
+<header id="header" class="header header--fixed hide-from-print">
     <ul class="button-group centered">
         <li class=""><a href="{{ URL::base() }}" class="button"><i class="fa fa-home"></i> Home</a></li>
         @if($app->login->check())
@@ -11,4 +11,4 @@
         @endif
         <li><a href="{{ URL::site('about') }}" class="button"><i class="fa fa-user"></i> About</a></li>
     </ul>
-</div>
+</header>

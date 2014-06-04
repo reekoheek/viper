@@ -1,5 +1,13 @@
 /* Global */
-body { background:#fcfcfc; overflow: auto; }
+body { background:#fcfcfc; font-family: montserrat, open_sansregular, sans, sans-serif; overflow: auto; }
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: montserrat, open_sansregular, sans, sans-serif;
+}
 select { padding:.25em; }
 hr { border:1px dotted #eee; border-width:2px 0 0; }
 a { color: #95C648; }
@@ -45,6 +53,9 @@ body div form .le-action { position:absolute; bottom:5px; }
 body .le-content div div a i { padding: 0 5px; }
 .login { width: 400px; margin: 40px auto; padding: 20px 20px 20px 20px; border: 1px solid #95C648; border-radius: 10px; }
 .logo { margin-right: auto; margin-left: auto; display: block; -webkit-border-radius:250px; -moz-border-radius:250px; border-radius:250px; }
+body .le-content .container div div .fb-share-button { margin-right: 0; }
+header .button-group.centered { margin-top: 9px }
+:not(pre) > code { padding: 2px 4px; font-size: 90%; color: #c7254e; background-color: #f9f2f4; white-space: nowrap; border-radius: 4px; }
 
 /* TypeAhead */
 .typeahead,.tt-query,.tt-hint { border:2px solid #ccc; -webkit-border-radius:5px; -moz-border-radius:5px; border-radius:5px; }
