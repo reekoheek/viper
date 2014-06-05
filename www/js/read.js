@@ -75,7 +75,7 @@
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             limit: 10,
             prefetch: {
-                url: window.URL_BASE + 'entries.json',
+                url: window.URL_SITE + 'entries.json',
                 filter: function(list) {
                     return list.entries;
                 }
