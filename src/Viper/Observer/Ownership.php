@@ -27,7 +27,7 @@ class Ownership
     public function saving($model)
     {
         $app  = App::getInstance();
-        $user = $app->login->user();
+        $user = $app->auth->user();
 
         $userId = ($user) ? $user['$id'] : 'system';
 

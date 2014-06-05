@@ -13,7 +13,7 @@ return array(
             '/'                   => null,
             '/about'              => null,
             '/install'            => null,
-            '/entries/*'          => null,
+            '/entries/:id'          => null,
             '/login'              => null,
             '/logout'             => null,
             '/tags.json'          => null,
@@ -24,7 +24,7 @@ return array(
         // Need authentication
         'restricted' => array(
             '/entries'     => null,
-            '/entries/*/*' => null,
+            '/entries/:id/:id' => null,
         ),
     ),
 );

@@ -18,25 +18,6 @@ use Slim\Middleware;
 class AuthMiddleware extends Middleware
 {
     /**
-     * Checking config match against request
-     *
-     * @param string $string The request path info
-     * @param array  $array  Array of URI that we want to check against the request
-     *
-     * @return bool
-     */
-    private function _inArray($string, $array = array())
-    {
-        foreach ($array as $key => $value) {
-            if (fnmatch($key, $string)) {
-                return true;
-            }
-        }
-
-        return false;
-    }
-
-    /**
      * Check user access based on config and authentication
      *
      * @return void
@@ -45,15 +26,13 @@ class AuthMiddleware extends Middleware
     {
         $config   = $this->app->config('auth');
         $pathInfo = $this->app->request->getPathInfo();
-        $allow    = false;
+        $allow    = $this->app->auth->check();
 
         if($pathInfo === '') $pathInfo ='/';
 
         foreach ($config['allow'] as $key => $value) {
             if ($this->checkURL($key, $pathInfo)) return $this->next->call();
         }
-
-        $allow = $this->app->auth->check();
 
         if ($allow) {
             $this->next->call();
@@ -63,10 +42,16 @@ class AuthMiddleware extends Middleware
         }
     }
 
+    /**
+     * Determine if URL can be accessed
+     *
+     * @param  string $uri
+     * @param  string $request
+     *
+     * @return bool
+     */
     protected function checkURL($uri, $request)
     {
-        if($uri == '*') return true;
-
         $pattern = "@^" . preg_replace('/(:id)+/', '([a-zA-Z0-9\-\_\.\?\:]+)', $uri) . "$@D";
 
         return (preg_match($pattern, $request) > 0) ? true : false;
