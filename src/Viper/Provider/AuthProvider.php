@@ -24,105 +24,72 @@ class AuthProvider extends Provider
      */
     protected $config = array();
 
+    protected $sessionId = '';
+
+    protected $session = array();
+
     /**
-     * Initializing, make the AuthProvider into IoC
-     *
+     * Initializing, make the LoginProvider into IoC
      * @return void
      */
     public function initialize()
     {
         $app          = $this->app;
         $this->config = $this->app->config('auth');
+        $that         = $this;
 
-        $that = $this;
+        if (! $this->check()) $this->forget();
 
-        $app->container->singleton(
-            'login', function ($c) use ($that) {
-                return $that;
-            }
-        );
+        $app->container->singleton('auth', function ($c) use ($that) {
+            return $that;
+        });
     }
 
     /**
      * Authenticate a single user
-     *
-     * @param array $user The user who is being authenticated
-     *
+     * @param  array $user The user who is being authenticated
      * @return void
      */
-    public function auth($user)
+    public function authenticate($user)
     {
-        $id = $this->config['id'];
-
-        $user = $user->toArray();
-
-        $_SESSION['auth'][$id]          = array();
-        $_SESSION['auth'][$id]['user']  = $user;
-        $_SESSION['auth'][$id]['login'] = true;
+        $_SESSION['auth'][$this->config['id']]['user']         = $user->toArray();
+        $_SESSION['auth'][$this->config['id']]['login']        = true;
     }
 
     /**
      * Deauth a single user
-     *
      * @return void
      */
-    public function deauth()
+    public function forget()
     {
-        $id = $this->config['id'];
-
-        $_SESSION['auth'][$id] = array();
-        $_SESSION['auth'][$id]['login'] = false;
+        $_SESSION['auth'][$this->config['id']]          = array();
+        $_SESSION['auth'][$this->config['id']]['login'] = false;
+        $_SESSION['auth'][$this->config['id']]['user']  = null;
     }
 
     /**
      * Get information about the authenticated user
-     *
-     * @param string $section The section of user info that we want to investigate
-     * @param string $value   The value that we want to change into something
-     *
      * @return mixed           Can be null if the user isn't auth'd
      */
-    public function user($section = null, $value = null)
+    public function user()
     {
-        $id = $this->config['id'];
-
-        if ($this->check()) {
-            if (! is_null($value) and (!is_null($section))) {
-                $_SESSION['auth'][$id]['user'][$section] = $value;
-            }
-
-            if (is_null($section)) {
-                return $_SESSION['auth'][$id]['user'];
-            } else {
-                if (isset($_SESSION['auth'][$id]['user'][$section])) {
-                    return $_SESSION['auth'][$id]['user'][$section];
-                }
-
-                return null;
-            }
-        } else {
-            return null;
-        }
+        return isset($_SESSION['auth'][$this->config['id']]['user']) ? $_SESSION['auth'][$this->config['id']]['user'] : null;
     }
 
     /**
      * Check whether user is auth'd
-     *
      * @return boolean
      */
     public function check()
     {
-        $id  = $this->config['id'];
-        $ret = false;
+        $auth = false;
 
-        if (isset($_SESSION['auth'][$id])) {
-            if(isset($_SESSION['auth'][$id]['login'])) {
-                $ret = $_SESSION['auth'][$id]['login'];
-            }
+        if (isset($_SESSION['auth'][$this->config['id']]['login'])) {
+            $auth = $_SESSION['auth'][$this->config['id']]['login'];
         } else {
-            $_SESSION['auth'][$id] = array();
+            $this->forget();
         }
 
-        return $ret;
+        return $auth;
     }
 }

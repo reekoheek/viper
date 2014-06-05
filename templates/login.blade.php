@@ -3,11 +3,11 @@
     <h1 class="text-center">Login</h1>
     <div class="row">
         <label>Username</label>
-        <input type="text" name="username">
+        <input type="text" name="username" placeholder="Username" required />
     </div>
     <div class="row">
         <label>Password</label>
-        <input type="password" name="password">
+        <input type="password" name="password" placeholder="Password" required />
     </div>
     <div class="row">
         <input type="submit" value="Login">

@@ -1,6 +1,8 @@
 - Responsive Page
 - Pagination (scroll down to load next entries)
 - Logo
-- Remind Password
+- Remind password
 - Delete redirection
 - Create miration table for other database engine
+- Xinix OAuth
+- Web shortcut

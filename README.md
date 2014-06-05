@@ -2,10 +2,12 @@
 
 # Viper
 Viper is e **V** erything **I** s **PER** mitted, a simple blog management system written in PHP.
-Post something in markdown style, and you'll set to publish. I create this one for my beloved friends, Subhan Toba. So people now can write what is in their mind via a fun blogging system.
+Post something in markdown style, and you'll set to publish. I create this one for my beloved friends, Subhan Toba.
+So people now can write what is in their mind via a fun blogging system.
+Viper is free and should always be free.
 
 # Philosophy
-The main idea is create a simple blog management system, make it simple, always simple as KISS.
+The main idea is create a simple blog management system, which you can feel happy when you write some text line by line.
 
 # Requirement and Installation
 

@@ -52,6 +52,8 @@ $meta = $app->config('meta');
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/moment.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/jquery.loadie.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/headroom.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/mousetrap.js') }}"></script>
+    <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/shortcut.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/global.js') }}"></script>
     <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/main.js') }}"></script>
     <script type="text/javascript" charset="utf-8">

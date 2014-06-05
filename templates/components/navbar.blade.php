@@ -1,7 +1,7 @@
 <header id="header" class="header header--fixed hide-from-print">
     <ul class="button-group centered">
         <li class=""><a href="{{ URL::base() }}" class="button"><i class="fa fa-home"></i> Home</a></li>
-        @if($app->login->check())
+        @if($app->auth->check())
             <li><a href="{{ URL::site('author') }}" class="button"><i class="fa fa-lock"></i> Author</a></li>
             <li><a href="{{ URL::site('tags') }}" class="button"><i class="fa fa-tags"></i> Tags</a></li>
             <li><a href="{{ URL::site('entries') }}" class="button"><i class="fa fa-heart"></i> Entries</a></li>

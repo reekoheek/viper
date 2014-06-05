@@ -13,15 +13,15 @@
 
 <div class="container" style="margin: 50px 0">
     <p class="text-center">
-        I create this one for my beloved friends, Subhan Toba. So people now can write
-        what is in their mind via a fun blogging system.
+        A new way to writing, inspired from Subhan Toba. So people now can write
+        what is in their mind via a fun and fast blogging-like system.
         <br />
-        If you want to contribute to this project, you can follow this project via GitHub.
-        You can fork, create a new branch, do some magic, and create a pull request.
-        <br />
-        If you find some errors or maybe you have a wish there's a feature inside Viper and you
-        cannot write a code, you can follow the milestone via GitHub too. Go to issue page, and
-        create a new issue there.
+        If you want to contribute to this project, you can follow this project via <a taget="_blank" href="https://github.com/krisanalfa/viper">GitHub</a>.
+        Fork it, create a new branch, do some magic, and create a pull request. Viper using <a href="http://www.php-fig.org/psr/psr-2/">PSR-2 coding standard</a>.
+        If you find some errors or maybe you wish there's a feature inside Viper and you but cannot write a code, you can follow the milestone via GitHub too.
+        Go to <a href="https://github.com/krisanalfa/viper/issues">issue page</a>, and create a <a href="https://github.com/krisanalfa/viper/issues/new">new issue</a> there.
+        <br /><br />
+        <small>The Viper image and favicon is a trademark from Valve (DotA 2)</small>
     </p>
 </div>
 

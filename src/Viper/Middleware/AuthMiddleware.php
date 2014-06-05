@@ -43,27 +43,32 @@ class AuthMiddleware extends Middleware
      */
     public function call()
     {
-        $app          = $this->app;
-        $config       = $app->config('auth');
-        $pathInfo     = $app->request->getPathInfo();
-        $allow        = $this->_inArray($pathInfo, $config['allow']);
-        $inRestricted = $this->_inArray($pathInfo, $config['restricted']);
+        $config   = $this->app->config('auth');
+        $pathInfo = $this->app->request->getPathInfo();
+        $allow    = false;
 
-        // If request is allowed in config and not in restricted page
-        if ($allow and ! $inRestricted) {
-            $allow = true;
+        if($pathInfo === '') $pathInfo ='/';
+
+        foreach ($config['allow'] as $key => $value) {
+            if ($this->checkURL($key, $pathInfo)) return $this->next->call();
         }
 
-        if (! $allow) {
-            // If user is logged in
-            if ($app->login->check()) {
-                $this->next->call();
-            } else {
-                $app->render('unauthorized', array(), 401);
-                $app->stop();
-            }
-        } else {
+        $allow = $this->app->auth->check();
+
+        if ($allow) {
             $this->next->call();
+        } else {
+            $this->app->render('unauthorized', array(), 401);
+            $this->app->stop();
         }
+    }
+
+    protected function checkURL($uri, $request)
+    {
+        if($uri == '*') return true;
+
+        $pattern = "@^" . preg_replace('/(:id)+/', '([a-zA-Z0-9\-\_\.\?\:]+)', $uri) . "$@D";
+
+        return (preg_match($pattern, $request) > 0) ? true : false;
     }
 }

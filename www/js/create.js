@@ -8,7 +8,7 @@
     editor.setTheme('ace/theme/github');
     editor.session.setMode('ace/mode/markdown');
 
-    editor.focus();
+    $('[name=title]').focus();
     editor.gotoLine(editor.session.getLength(), editor.session.getLine(editor.session.getLength() - 1).length);
 
     $('body').loadie(0.5);

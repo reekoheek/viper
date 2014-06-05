@@ -44,7 +44,7 @@ class ViperProvider extends Provider
 
         // Logout process
         $app->get('/logout', function () use ($app) {
-            $app->login->deauth();
+            $app->auth->forget();
             h('notification.info', 'Bye bye :(');
 
             $app->response->redirect('/login');
@@ -64,7 +64,7 @@ class ViperProvider extends Provider
 
             // Username and password match
             if (password_verify($post['password'], $author->get('password'))) {
-                $app->login->auth($author);
+                $app->auth->authenticate($author);
                 h('notification.info', 'Hello there :)');
 
                 return $app->response->redirect('/entries');
