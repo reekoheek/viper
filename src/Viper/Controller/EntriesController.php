@@ -36,4 +36,41 @@ class EntriesController extends NormController
             return;
         }
     }
+
+    public function create()
+    {
+        $entry = $this->getCriteria();
+
+        if ($this->request->isPost()) {
+            $this->store(array_merge($entry, $this->request->post()));
+        }
+
+        $this->data['entry'] = $entry;
+    }
+
+    protected function store(array $entry)
+    {
+        $model = $this->collection->newInstance();
+
+        try {
+            $result = $model->set($entry)->save();
+
+            h('notification.info', $this->clazz.' created.');
+
+            h('controller.create.success', array(
+                'model' => $model
+            ));
+
+        } catch (\Slim\Exception\Stop $e) {
+            throw $e;
+        } catch (\Exception $e) {
+
+            h('notification.error', $e);
+
+            h('controller.create.error', array(
+                'model' => $model,
+                'error' => $e,
+            ));
+        }
+    }
 }

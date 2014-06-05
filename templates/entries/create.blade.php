@@ -10,15 +10,13 @@ $form = Form::create(App::getInstance()->controller->clazz)->of($entry);
 ?>
 
 <div class="row">
-    <form action="">
-        <div class="span-12">
-            <div class="row">
-                <div class="span-6">
-                    {{ $form->input('title') }}
-                </div>
-                <div class="span-6">
-                    {{ $form->input('tags') }}
-                </div>
+    <form action="" method="POST">
+        <div class="row">
+            <div class="span-6">
+                {{ $form->input('title') }}
+            </div>
+            <div class="span-6">
+                <select id="test" multiple placeholder="Insert tags" name="tags[]"></select>
             </div>
         </div>
 
@@ -33,7 +31,7 @@ $form = Form::create(App::getInstance()->controller->clazz)->of($entry);
         <div class="le-action">
             <button class="show-preview">Preview</button>
             <button class="save">Save</button>
-            <a href="{{ URL::base('entries') }}" class="button warning">Cancel</a>
+            <a href="{{ URL::site('entries') }}" class="button warning">Cancel</a>
         </div>
     </form>
 </div>
@@ -43,5 +41,7 @@ $form = Form::create(App::getInstance()->controller->clazz)->of($entry);
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/highlight/highlight.pack.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/marked.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/ace/ace.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/typeahead.bundle.js') }}"></script>
+<script type="text/javascript" charset="utf-8" src="{{ URL::base('js/vendor/tagsinput.js') }}"></script>
 <script type="text/javascript" charset="utf-8" src="{{ URL::base('js/create.js') }}"></script>
 @endsection

@@ -1,15 +1,5 @@
-(function (marked, hljs, $, _, Bloodhound, moment) {
+(function (marked, $, _, Bloodhound, moment) {
     'use strict';
-
-    _.templateSettings = {
-        interpolate : /\{\{([\s\S]+?)\}\}/g
-    };
-
-    marked.setOptions({
-        highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-        }
-    });
 
     $('body').loadie();
 
@@ -39,17 +29,24 @@
             $('body').loadie(0.7);
 
             $.each(data, function (key, model) {
+                model.tag = [];
+
+                $.each(model.tags, function(key, value) {
+                    model.tag.push(_.first(_.where(tags, {'$id': value})).name);
+                });
+
                 compiled            = _.template(template);
-                model.tag           = _.first(_.where(tags, {'$id': model.tags}));
                 model.author        = _.first(_.where(author, {'$id': model.$created_by}));
                 model.$created_time = moment(model.$created_time).format('llll');
                 preview             = $(marked(model.content)).filter(function () {
                     return !!$.trim(this.innerHTML || this.data);
                 });
                 model.preview       = $('<div>').append(preview[0]).append(preview[1]).html();
+                model.url           = window.location.href;
+
                 data.URL_BASE       = window.URL_BASE;
                 data.URL_SITE       = window.URL_SITE;
-                model.url           = window.location.href;
+
                 $('.container.posts').append(compiled(model));
             });
 
@@ -87,7 +84,7 @@
             queryTokenizer: Bloodhound.tokenizers.whitespace,
             limit: 10,
             prefetch: {
-                url: window.URL_SITE + 'entries.json',
+                url: window.URL_SITE + 'entries.json?!sort[_created_time]=-1',
                 filter: function (list) {
                     return list.entries;
                 }
@@ -144,7 +141,7 @@
             author = response.entries;
 
             $.ajax({
-                url: window.URL_SITE + 'entries.json'
+                url: window.URL_SITE + 'entries.json?!sort[_created_time]=-1'
             }).done(function (data) {
                 $('body').loadie(0.6);
 
@@ -166,4 +163,4 @@
             });
         });
     });
-})(window.marked, window.hljs, window.$, window._, window.Bloodhound, window.moment);
+})(window.marked, window.$, window._, window.Bloodhound, window.moment);

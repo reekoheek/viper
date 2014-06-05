@@ -1,6 +1,4 @@
-<?php
-
-namespace Viper\Schema;
+<?php namespace Viper\Schema;
 
 use Norm\Schema\Field;
 

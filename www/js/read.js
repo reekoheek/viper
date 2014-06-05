@@ -1,16 +1,6 @@
 (function (marked, hljs, $, _, Bloodhound, moment) {
     'use strict';
 
-    _.templateSettings = {
-        interpolate : /\{\{([\s\S]+?)\}\}/g
-    };
-
-    marked.setOptions({
-        highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-        }
-    });
-
     $('body').loadie();
 
     var tags = {},
@@ -36,9 +26,14 @@
 
             $('body').loadie(0.7);
 
+            data.tag = [];
+
+            $.each(data.tags, function(key, value) {
+                data.tag.push(_.first(_.where(tags, {'$id': value})));
+            });
+
             compiled           = _.template(template);
             data.author        = _.first(_.where(author, {'$id': data.$created_by}));
-            data.tag           = _.first(_.where(tags, {'$id': data.tags}));
             data.$created_time = moment(data.$created_time).format('llll');
             data.entry         = marked(data.content);
             data.URL_BASE      = window.URL_BASE;

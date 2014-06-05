@@ -29,11 +29,15 @@ $meta = $app->config('meta');
     <link rel="stylesheet" href="{{ URL::base('fonts/montserrat/stylesheet.css') }}">
     <link rel="stylesheet" href="{{ URL::base('fonts/open_sans/stylesheet.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/headroom.css') }}">
+
+    <link rel="stylesheet" href="{{ URL::base('css/bootstrap.min.css') }}">
+
     <link rel="stylesheet" href="{{ URL::base('css/naked.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/font-awesome.css') }}">
     <link rel="stylesheet" href="{{ URL::base('js/highlight/styles/github.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/loadie.css') }}">
     <link rel="stylesheet" href="{{ URL::base('css/style.css') }}">
+    <link rel="stylesheet" href="{{ URL::base('css/tagsinput.css') }}">
 
     @yield('styler')
 </head>

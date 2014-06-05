@@ -65,6 +65,19 @@ $(document).ready(function() {
         }
     }).init();
 
+    window._.templateSettings = {
+        evaluate: /\{\{#(.+?)\}\}/g,
+        interpolate: /\{\{([^#].*?)\}\}/g
+    };
+
+    if (typeof window.marked !== 'undefined') {
+        window.marked.setOptions({
+            highlight: function (code) {
+                return window.hljs.highlightAuto(code).value;
+            }
+        });
+    }
+
     $(".alert").click(function() { $(this).addClass("hide"); });
 
     var s4 = window.s4 = function () { return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1); };

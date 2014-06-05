@@ -17,7 +17,12 @@
                 </a>
             </li>
             <li>{{ $created_time }}</li>
-            <li>Tagged in: <b class="tag">#{{ tag.name }}</b></li>
+            <li>
+                Tagged in:
+                {{# _.each(tag, function(key, value) { }}
+                    <a href="#">#{{ key }}</a>
+                {{# }); }}
+            </li>
             <li></li>
         </ul>
     </div>

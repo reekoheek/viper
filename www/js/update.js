@@ -1,9 +1,23 @@
-(function ($, ace, marked, hljs) {
+(function ($, ace, marked, hljs, Bloodhound) {
     'use strict';
 
     $('body').loadie();
 
-    var editor = ace.edit($('.le-editor')[0]);
+    var editor = ace.edit($('.le-editor')[0]),
+        tags = window.tags = new Bloodhound({
+            datumTokenizer: function (datum) {
+                return Bloodhound.tokenizers.whitespace(datum.name);
+            },
+            queryTokenizer: Bloodhound.tokenizers.whitespace,
+            limit: 10,
+            prefetch: {
+                url: window.URL_SITE + 'tags.json',
+                filter: function (list) {
+                    console.log(list.entries);
+                    return list.entries;
+                }
+            }
+        });
 
     editor.setTheme('ace/theme/github');
     editor.session.setMode('ace/mode/markdown');
@@ -12,6 +26,34 @@
     editor.gotoLine(editor.session.getLength(), editor.session.getLine(editor.session.getLength() - 1).length);
 
     $('body').loadie(0.5);
+
+    tags.initialize();
+
+    $('#test').tagsinput({
+        itemValue: 'id',
+        itemText: function(item) { return item.text; }
+    });
+
+    $.each(window.arr, function(key, value) {
+        $('#test').tagsinput('add', {id: value.id, text: value.text}, true);
+    });
+
+    $('#test').tagsinput('input').typeahead(null, {
+        highlight: true,
+        displayKey: 'name',
+        source: tags.ttAdapter()
+    }).bind('typeahead:selected', $.proxy(function (obj, datum) {
+        this.tagsinput('add', {id: datum.$id, text: datum.name}, true);
+        setTimeout(function() {
+            $('#test').tagsinput('input').typeahead('val', '');
+        }, 1);
+    }, $('#test')));
+
+    marked.setOptions({
+        highlight: function(code) {
+            return hljs.highlightAuto(code).value;
+        }
+    });
 
     marked.setOptions({
         highlight: function (code) {
@@ -25,8 +67,7 @@
     }
 
     editor.on('change', function (event) {
-        $('.le-preview').html(marked(editor.getValue()));
-        $('.le-preview').scrollTop($('.le-preview')[0].scrollHeight);
+        $('.twitter-typeahead pre[aria-hidden=true]').css('margin-bottom', '-50px');
     });
 
     editor.on('blur', function (event) {
@@ -44,6 +85,8 @@
         $(event.target).text('Close Preview');
         $(event.target).attr('class', 'close-preview');
 
+        $('.le-preview').html(marked(editor.getValue()));
+
         $('.le-editor').hide();
         $('.le-preview').show();
     });
@@ -56,6 +99,8 @@
 
         $(event.target).text('Preview');
         $(event.target).attr('class', 'show-preview');
+
+        $('.le-preview').html('');
 
         $('.le-editor').show();
         $('.le-preview').hide();
@@ -89,4 +134,4 @@
             window.console.error(data, textStatus, jqXHR);
         });
     });
-})(window.$, window.ace, window.marked, window.hljs);
+})(window.$, window.ace, window.marked, window.hljs, window.Bloodhound);

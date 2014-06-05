@@ -2,10 +2,12 @@
 
 use Norm\Schema\String;
 use Viper\Schema\Password;
+use Viper\Schema\ArrayReference;
 use Norm\Schema\Integer;
 use Norm\Schema\Boolean;
 use Norm\Schema\Text;
 use Norm\Schema\Reference;
+use Norm\Schema\NormArray;
 
 // NORM
 return array(
@@ -70,8 +72,21 @@ return array(
                     'content' => String::getInstance('content')->filter('trim|required')
                         ->format('plain', function($value) {
                             return substr($value, 0, 50) . '...';
-                        }),
-                    'tags'    => Reference::getInstance('tags')->to('Tags', 'name'),
+                        }
+                    ),
+                    'tags'    => NormArray::getInstance('tags')->format('plain', function($value) {
+                            $array = array();
+
+                            foreach ($value as $id) {
+                                $model = \Norm::factory('Tags')->findOne($id);
+                                if ($model) {
+                                    $array[] = $model->get('name');
+                                }
+                            }
+
+                            return implode(',', $array);
+                        }
+                    ),
                 )
             )
         ),
