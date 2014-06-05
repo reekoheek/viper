@@ -33,12 +33,7 @@ foreach ($tags as $id) {
                 {{ $form->input('title') }}
             </div>
             <div class="span-6">
-                <select id="test" multiple placeholder="Insert tags" name="tags[]">
-                    <option value="Amsterdam">Amsterdam</option>
-                    @foreach ($array as $tag)
-                        <option value="{{ $tag['$id'] }}"> {{ $tag['name'] }} </option>
-                    @endforeach
-                </select>
+                <select id="test" multiple placeholder="Insert tags" name="tags[]"></select>
             </div>
         </div>
 
