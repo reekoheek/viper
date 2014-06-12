@@ -1,9 +1,9 @@
-<?php
+<?php namespace Viper\Controller;
 
-namespace Viper\Controller;
-
-use \Norm\Controller\NormController;
-use \Bono\App;
+use Norm\Controller\NormController;
+use Bono\App;
+use Exception;
+use Slim\Exception\Stop;
 
 /**
  * We shouldn't get the data twice from database when render the 'read' page
@@ -27,9 +27,7 @@ class EntriesController extends NormController
      */
     public function read($id)
     {
-        $app = App::getInstance();
-
-        if ($app->request->getMediaType() === 'application/json') {
+        if ($this->request->getMediaType() === 'application/json') {
             parent::read($id);
         } else {
             // do nothing
@@ -42,7 +40,8 @@ class EntriesController extends NormController
         $entry = $this->getCriteria();
 
         if ($this->request->isPost()) {
-            $this->store(array_merge($entry, $this->request->post()));
+            $entry = array_merge($entry, $this->request->post());
+            $entry = $this->store($entry);
         }
 
         $this->data['entry'] = $entry;
@@ -51,6 +50,7 @@ class EntriesController extends NormController
     protected function store(array $entry)
     {
         $model = $this->collection->newInstance();
+        $result = $entry;
 
         try {
             $result = $model->set($entry)->save();
@@ -61,9 +61,9 @@ class EntriesController extends NormController
                 'model' => $model
             ));
 
-        } catch (\Slim\Exception\Stop $e) {
+        } catch (Stop $e) {
             throw $e;
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
             h('notification.error', $e);
 
@@ -72,5 +72,7 @@ class EntriesController extends NormController
                 'error' => $e,
             ));
         }
+
+        return $result;
     }
 }

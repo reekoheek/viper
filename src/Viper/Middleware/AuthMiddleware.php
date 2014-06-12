@@ -1,6 +1,4 @@
-<?php
-
-namespace Viper\Middleware;
+<?php namespace Viper\Middleware;
 
 use Slim\Middleware;
 

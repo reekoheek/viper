@@ -1,6 +1,4 @@
-<?php
-
-namespace Viper\Observer;
+<?php namespace Viper\Observer;
 
 use Bono\App;
 

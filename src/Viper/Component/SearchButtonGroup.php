@@ -1,6 +1,4 @@
-<?php
-
-namespace Viper\Component;
+<?php namespace Viper\Component;
 
 use Bono\App;
 

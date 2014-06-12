@@ -26,7 +26,6 @@ foreach ($tags as $id) {
         <button type="button" class="close">×</button>
         <span></span>
     </div>
-
     <form action="" method="POST">
         <div class="row">
             <div class="span-6">
@@ -39,12 +38,28 @@ foreach ($tags as $id) {
 
         <input type="hidden" name="content">
 
-        <div class="le-editor">{{ $form->data('content') }}</div>
+        <article class="tabs">
+            <section>
+                <h2>
+                    <a class="nav active" href="#source">Source</a>
+                </h2>
+                <div class="content active" id="source">
+                    <div class="editor-wrapper">
+                        <textarea class="editor" name="content" data-editor="markdown">{{ $form->data('content') }}</textarea>
+                        <span class="help-block"><small>Your input parsed in GitHub Flavored Markdown</small></span>
+                    </div>
+                </div>
+            </section>
 
-        <div class="le-preview"></div>
+            <section>
+                <h2>
+                    <a class="nav" href="#review">Preview</a>
+                </h2>
+                <div class="content" id="review"></div>
+            </section>
+        </article>
 
         <div class="le-action">
-            <button class="show-preview">Preview</button>
             <button class="save">Save</button>
             <a href="{{ URL::site('/entries') }}" class="button warning">Cancel</a>
         </div>

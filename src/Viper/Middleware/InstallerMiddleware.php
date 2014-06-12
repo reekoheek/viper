@@ -1,9 +1,8 @@
-<?php
-
-namespace Viper\Middleware;
+<?php namespace Viper\Middleware;
 
 use Norm\Norm;
 use Slim\Middleware;
+use Exception;
 
 /**
  * Try to add a new user to database if the author table is empty,
@@ -70,7 +69,7 @@ class InstallerMiddleware extends Middleware
                         h('notification.info', $message);
 
                         $this->app->response->redirect('/login');
-                    } catch(\Exception $e) {
+                    } catch(Exception $e) {
                         throw $e;
                     }
                 }

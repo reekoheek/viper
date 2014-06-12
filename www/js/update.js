@@ -3,27 +3,59 @@
 
     $('body').loadie();
 
-    var editor = ace.edit($('.le-editor')[0]),
-        tags = window.tags = new Bloodhound({
-            datumTokenizer: function (datum) {
-                return Bloodhound.tokenizers.whitespace(datum.name);
-            },
-            queryTokenizer: Bloodhound.tokenizers.whitespace,
-            limit: 10,
-            prefetch: {
-                url: window.URL_SITE + 'tags.json',
-                filter: function (list) {
-                    console.log(list.entries);
-                    return list.entries;
-                }
+    $(document).on('click', '.tabs .nav', function(event) {
+        event.preventDefault();
+
+        var target = $(event.target),
+            contentId = target.attr('href');
+
+        $('.tabs section .content').removeClass('active');
+        $('.tabs a.nav').removeClass('active');
+
+        target.addClass('active');
+        $(contentId).addClass('active');
+    });
+
+    var tags = window.tags = new Bloodhound({
+        datumTokenizer: function (datum) {
+            return Bloodhound.tokenizers.whitespace(datum.name);
+        },
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        limit: 10,
+        prefetch: {
+            url: window.URL_SITE + 'tags.json',
+            filter: function (list) {
+                console.log(list.entries);
+                return list.entries;
             }
+        }
+    });
+
+    $('textarea[data-editor]').each(function () {
+        var textarea = $(this),
+            mode = textarea.data('editor'),
+            editDiv = $('<div>', {
+            position: 'absolute',
+            width: textarea.width(),
+            height: textarea.height(),
+            'class': textarea.attr('class')
+        }).insertBefore(textarea);
+
+        textarea.css('display', 'none');
+
+        var editor = window.editor = ace.edit(editDiv[0]);
+        editor.renderer.setShowGutter(true);
+        editor.getSession().setValue(textarea.val());
+        editor.getSession().setMode("ace/mode/" + mode);
+        editor.setTheme("ace/theme/github");
+
+        editor.on('blur', function() {
+            $('#review').html(marked(editor.getSession().getValue()));
         });
 
-    editor.setTheme('ace/theme/github');
-    editor.session.setMode('ace/mode/markdown');
-
-    editor.focus();
-    editor.gotoLine(editor.session.getLength(), editor.session.getLine(editor.session.getLength() - 1).length);
+        editor.focus();
+        // editor.gotoLine(editor.session.getLength(), editor.session.getLine(editor.session.getLength() - 1).length);
+    });
 
     $('body').loadie(0.5);
 
@@ -55,56 +87,7 @@
         }
     });
 
-    marked.setOptions({
-        highlight: function (code) {
-            return hljs.highlightAuto(code).value;
-        }
-    });
-
-    if ($('.le-preview').html().length === 0) {
-        $('.le-preview').html(marked(editor.getValue()));
-        $('body').loadie(1);
-    }
-
-    editor.on('change', function (event) {
-        $('.twitter-typeahead pre[aria-hidden=true]').css('margin-bottom', '-50px');
-    });
-
-    editor.on('blur', function (event) {
-        if (($('.le-preview').html().length > 0) === false) {
-            $('.le-preview').html('<h1 class="le-holder">PREVIEW</h1>');
-        }
-    });
-
-    $(document).on('click', '.show-preview', function(event) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-
-        $('.le-action').css('position', 'relative');
-
-        $(event.target).text('Close Preview');
-        $(event.target).attr('class', 'close-preview');
-
-        $('.le-preview').html(marked(editor.getValue()));
-
-        $('.le-editor').hide();
-        $('.le-preview').show();
-    });
-
-    $(document).on('click', '.close-preview', function(event) {
-        event.preventDefault();
-        event.stopImmediatePropagation();
-
-        $('.le-action').css('position', 'absolute');
-
-        $(event.target).text('Preview');
-        $(event.target).attr('class', 'show-preview');
-
-        $('.le-preview').html('');
-
-        $('.le-editor').show();
-        $('.le-preview').hide();
-    });
+    $('body').loadie(1);
 
     $('.le-action .save').on('click', function (event) {
         event.preventDefault();

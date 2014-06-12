@@ -1,6 +1,4 @@
-<?php
-
-namespace Viper\Provider;
+<?php namespace Viper\Provider;
 
 use \Bono\Helper\URL;
 use \Bono\Provider\Provider;
