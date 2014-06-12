@@ -69,3 +69,4 @@ header .button-group.centered { margin-top: 9px }
 .tt-cursor { color:#fff; background-color:#95C648; }
 .tt-suggestion p { margin:0; }
 #bloodhound.read .twitter-typeahead { width: 90%; }
+article.post img { max-width: 800px; }
