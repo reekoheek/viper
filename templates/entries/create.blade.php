@@ -20,16 +20,28 @@ $form = Form::create(App::getInstance()->controller->clazz)->of($entry);
             </div>
         </div>
 
-        <input type="hidden" name="content">
+        <article class="tabs">
+            <section>
+                <h2>
+                    <a class="nav active" href="#source">Source</a>
+                </h2>
+                <div class="content active" id="source">
+                    <div class="editor-wrapper">
+                        <textarea class="editor" name="content" data-editor="markdown">{{ $form->data('content') }}</textarea>
+                        <span class="help-block"><small>Your input parsed in GitHub Flavored Markdown</small></span>
+                    </div>
+                </div>
+            </section>
 
-        <div class="le-editor"></div>
-
-        <div class="le-preview">
-            <h1 class="le-holder">PREVIEW</h1>
-        </div>
+            <section>
+                <h2>
+                    <a class="nav" href="#review">Preview</a>
+                </h2>
+                <div class="content" id="review"></div>
+            </section>
+        </article>
 
         <div class="le-action">
-            <button class="show-preview">Preview</button>
             <button class="save">Save</button>
             <a href="{{ URL::site('entries') }}" class="button warning">Cancel</a>
         </div>
