@@ -11,9 +11,10 @@ return array(
         'allow' => array(
             ''                    => null,
             '/'                   => null,
+            '/js'                 => null,
             '/about'              => null,
             '/install'            => null,
-            '/entries/:id'          => null,
+            '/entries/:id'        => null,
             '/login'              => null,
             '/logout'             => null,
             '/tags.json'          => null,

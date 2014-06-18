@@ -38,7 +38,7 @@
                 compiled            = _.template(template);
                 model.author        = _.first(_.where(author, {'$id': model.$created_by}));
                 model.$created_time = moment(model.$created_time).format('llll');
-                preview             = $(marked(model.content)).filter(function () {
+                preview             = $(marked($.parseHTML(model.content)[0].data)).filter(function () {
                     return !!$.trim(this.innerHTML || this.data);
                 });
                 model.preview       = $('<div>').append(preview[0]).append(preview[1]).html();

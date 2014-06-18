@@ -27,7 +27,7 @@
         </ul>
     </div>
 
-    <article class="post span-6">
+    <article class="post span-8">
         <h1><a href="{{ URL_SITE }}entries/{{ $id }}"> {{ title }} </a></h1>
         <hr />
         {{ preview }}

@@ -27,7 +27,7 @@
         </ul>
     </div>
 
-    <article class="post span-6">
+    <article class="post span-8">
         <h1> {{ title }} </h1>
         <hr />
         {{ entry }}

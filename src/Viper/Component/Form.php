@@ -33,6 +33,23 @@ class Form
         return new static($collection);
     }
 
+    public function renderFields($entry) {
+        $html = '';
+        $iterator = $this->fields;
+
+        foreach ($iterator as $key => $v) {
+            $field = $this->fields[$key];
+            $html .= '<div class="row">';
+            $html .= '<div class="span-12">';
+            $html .= $field->label();
+            $html .= $field->format('input', @$entry[$field['name']], @$entry);
+            $html .= '</div>';
+            $html .= '</div>';
+        }
+
+        return $html;
+    }
+
     /**
      * The class constructor
      *

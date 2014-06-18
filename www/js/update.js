@@ -54,7 +54,6 @@
         });
 
         editor.focus();
-        // editor.gotoLine(editor.session.getLength(), editor.session.getLine(editor.session.getLength() - 1).length);
     });
 
     $('body').loadie(0.5);
@@ -80,12 +79,6 @@
             $('#test').tagsinput('input').typeahead('val', '');
         }, 1);
     }, $('#test')));
-
-    marked.setOptions({
-        highlight: function(code) {
-            return hljs.highlightAuto(code).value;
-        }
-    });
 
     $('body').loadie(1);
 

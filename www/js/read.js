@@ -35,7 +35,7 @@
             compiled           = _.template(template);
             data.author        = _.first(_.where(author, {'$id': data.$created_by}));
             data.$created_time = moment(data.$created_time).format('llll');
-            data.entry         = marked(data.content);
+            data.entry         = marked($.parseHTML(data.content)[0].data);
             data.URL_BASE      = window.URL_BASE;
             data.URL_SITE      = window.URL_SITE;
             data.url           = window.location.href;

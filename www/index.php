@@ -37,5 +37,7 @@
 // The composer autoload
 require '../vendor/autoload.php';
 
+use Bono\App;
+
 // Turn on the lights
-new \Bono\App(array('autorun' => true));
+new App(array('autorun' => true));

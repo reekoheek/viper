@@ -1,7 +1,7 @@
 @section('content')
 <?php
 
-use ROH\BonoComponent\PlainTable as Table;
+use Viper\Component\Table;
 use Viper\Component\SearchButtonGroup;
 use Bono\App;
 
