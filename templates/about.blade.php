@@ -1,7 +1,7 @@
 @section('content')
 <?php use Bono\Helper\URL; ?>
 
-<div class="container" style="margin-bottom: 50px">
+<div class="container" style="margin-bottom: 20px">
     <div class="row">
         <img src="{{ URL::base('/img/viper.png') }}" alt="" class="logo" style="">
     </div>
@@ -11,7 +11,7 @@
 
 <hr />
 
-<div class="container" style="margin: 50px 0">
+<div class="container" style="">
     <p class="text-center">
         A new way to writing, inspired from Subhan Toba. So people now can write
         what is in their mind via a fun and fast blogging-like system.
@@ -27,7 +27,7 @@
 
 <hr />
 
-<div class="container" style="margin: 50px 0 0 0">
+<div class="container" style="">
     <h2 class="text-center"><small>Creative by Krisan Alfa Timur</small></h2>
     <div class="text-center">
         <a taget="_blank" href="https://github.com/krisanalfa"><i class="fa fa-github fa-2x"></i></a>
